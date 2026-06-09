@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('aw_unlocked')==='1')document.documentElement.classList.add('aw-ok');}catch(e){}</script>
+<title>ApartWorld &middot; Study 1 — Understanding the ecosystem &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="ApartWorld Study 1">
+<div class="gate" role="dialog" aria-label="Password protected">
+  <div class="gate-card">
+    <div class="gate-mark"><img src="assets/img/avatar.png" alt=""></div>
+    <span class="lock">&#128274; Protected case study</span>
+    <h1 style="margin-top:14px;">ApartWorld<span style="color:var(--orange);">.</span></h1>
+    <p>This is current, confidential client work. Enter the password to view the full project &amp; its four studies.</p>
+    <form>
+      <input type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <button class="btn btn-primary" type="submit">Unlock <span class="arr">&rarr;</span></button>
+    </form>
+    <div class="err-msg"></div>
+    <a class="back" href="work.html">&larr; Back to all work</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="subnav studies"><div class="subnav-inner"><a href="apartworld.html" class="sub-label" style="text-decoration:none;">&larr; ApartWorld</a><a href="study1.html" class="on">01 &middot; Understanding the ecosystem</a><a href="study2.html">02 &middot; Understanding users at scale</a><a href="study3.html">03 &middot; From research to MVP</a><a href="study4.html">04 &middot; Evaluating the flows</a></div></div>
+<main class="reader section" style="padding-top:clamp(20px,3vw,32px);">
+
+<style>
+  .s1{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .s1-back{font-size:13px;color:var(--color-text-tertiary);margin-bottom:2rem;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .s1-back:hover{color:var(--color-text-secondary)}
+  .s1-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .s1-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .s1-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .s1-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .s1-meta-item{display:flex;flex-direction:column;gap:3px}
+  .s1-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .s1-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .s1-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .s1-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .s1-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .s1-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .s1-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .s1-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .s1-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .s1-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .s1-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .s1-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .s1-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .s1-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .s1-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:200px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .s1-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .s1-finding{margin:2rem 0}
+  .s1-finding-num{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);margin-bottom:4px}
+  .s1-finding-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 .75rem;line-height:1.3}
+  .s1-rq{margin:0;padding:0;list-style:none}
+  .s1-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .s1-rq li:last-child{border-bottom:none}
+  .s1-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .s1-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .s1-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .s1-synthesis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:1.5rem 0}
+  .s1-syn-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .s1-syn-card strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:4px}
+  .s1-syn-card p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55}
+  .s1-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .s1-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .s1-reflection p:last-child{margin-bottom:0}
+  .s1-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .s1-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+  .s1-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0}
+  .s1-col-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .s1-col-card strong{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);display:block;margin-bottom:6px}
+  .s1-col-card p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6}
+</style>
+
+<div class="s1">
+  <a class="s1-back" href="apartworld.html">← ApartWorld</a>
+  <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);margin:0 0 1.75rem;"><img src="assets/img/aw/s1.png" alt="Study 1 cover" style="display:block;width:100%;height:auto;"></div>
+
+  <p class="s1-label">Study 1 of 4</p>
+  <h1 class="s1-h1">Understanding the ecosystem</h1>
+  <p class="s1-sub">Mapping stakeholders, competitive landscape, and hidden dependencies before designing anything</p>
+
+  <div class="s1-meta">
+    <div class="s1-meta-item"><span>Methods</span><span>Interviews · Journey mapping · Competitive benchmarking · Ecosystem mapping</span></div>
+    <div class="s1-meta-item"><span>Participants</span><span>Admin session · Agent walkthrough · 25+ platforms analyzed</span></div>
+    <div class="s1-meta-item"><span>Tools</span><span>Miro · FigJam · Excel · Teams</span></div>
+  </div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">The starting point</h2>
+  <p class="s1-body">When I joined the ApartWorld project, the team already had feature requirements and early assumptions about what needed to be built. The instinct was to start designing — booking flows, search interfaces, dashboards.</p>
+  <p class="s1-body">I pushed back on that. Two things were happening simultaneously that made me uncomfortable moving straight to screens.</p>
+  <p class="s1-body">First, different stakeholders described the same process in completely different ways. Sales talked about acquisition. Admins talked about onboarding and monitoring. Agents talked about closing bookings quickly. Operations talked about handling failures. This wasn't a difference of opinion — it was a signal that work was distributed across people in ways we didn't yet understand.</p>
+  <p class="s1-body">Second, we were entering a product category with established players and existing user expectations. Before deciding what ApartWorld should be, I wanted to understand what the category already looked like — what models existed, where they clustered, and what gaps they left open.</p>
+  <p class="s1-body">I ran both investigations in parallel: one looking inward at how work moved across the people who would use the product, and one looking outward at what the competitive landscape could tell us about where this product might credibly sit.</p>
+
+  <div class="s1-pull"><p>"Before designing interfaces, I needed to understand both how work happened inside the ecosystem and what the category already expected of a product like this."</p></div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">Research questions</h2>
+  <ul class="s1-rq">
+    <li><span class="s1-rq-num">1</span><span>Who are the key actors in the ecosystem, and how do their workflows depend on each other?</span></li>
+    <li><span class="s1-rq-num">2</span><span>Where does friction emerge — and how much of it happens outside the product entirely?</span></li>
+    <li><span class="s1-rq-num">3</span><span>What models and patterns already exist in the competitive landscape?</span></li>
+    <li><span class="s1-rq-num">4</span><span>What does the category currently leave underserved?</span></li>
+    <li><span class="s1-rq-num">5</span><span>Which workflows should the product prioritize for MVP?</span></li>
+  </ul>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">Approach</h2>
+  <p class="s1-body">Two parallel investigations, each using the other as a pressure test. Internal findings were cross-checked against competitive patterns. Competitive gaps were validated against what users actually described.</p>
+
+  <div class="s1-two-col">
+    <div class="s1-col-card">
+      <strong>Looking inward</strong>
+      <p>Stakeholder interviews, workflow mapping, journey mapping, proto-persona development, pain-point synthesis, opportunity mapping</p>
+    </div>
+    <div class="s1-col-card">
+      <strong>Looking outward</strong>
+      <p>Structured analysis of 25+ platforms across business model, user groups, supply type, booking model, USP, and differentiating features</p>
+    </div>
+  </div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">What the competitive landscape revealed</h2>
+  <p class="s1-body">I cast wide — looking at large OTAs like Agoda and Expedia, niche players like Plum Guide, corporate-focused platforms like Apartool and SACO, and aggregators like HomeToGo. The goal wasn't feature comparison. It was pattern recognition — what models existed, what assumptions each platform made about its users, and where the category clustered.</p>
+  <p class="s1-body">Three structural patterns emerged quickly. The market had a clear B2B/B2C split, with very few platforms doing both well. Trust mechanisms were underdeveloped in the apartment category — hotels had star ratings as a cognitive shorthand, apartments didn't. And the agent and corporate booking layer was consistently underserved — where B2B features existed, they felt grafted onto consumer products rather than built from the ground up.</p>
+
+  <div class="s1-img-placeholder">
+    <span class="s1-img-label">Visual 1</span>
+    <span class="s1-img-title">Competitive landscape map</span>
+    <div class="fig">
+  <div class="fig-pills" style="margin-bottom:14px;">
+    <span class="fig-pill">48 platforms benchmarked</span>
+    <span class="fig-pill b">B2C · 23</span>
+    <span class="fig-pill b">B2B · 15</span>
+    <span class="fig-pill">Hybrid · 4</span>
+    <span class="fig-pill">GDS · 3</span>
+  </div>
+  <div class="fig-k" style="margin-bottom:8px;">Agent-facing feature coverage across the category</div>
+  <div class="fig-bars">
+    <div class="fig-bar"><div class="lab"><span>Quote / shortlist tool for agents</span><b>9 / 48</b></div><div class="track"><div class="fill" style="width:19%"></div></div></div>
+    <div class="fig-bar b2"><div class="lab"><span>Flexible-date search</span><b>6 / 48</b></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+    <div class="fig-bar b2"><div class="lab"><span>AI / natural-language search</span><b>6 / 48</b></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+    <div class="fig-bar"><div class="lab"><span>Side-by-side compare</span><b>4 / 48</b></div><div class="track"><div class="fill" style="width:8%"></div></div></div>
+  </div>
+  <div class="fig-note"><b>The clearest gap:</b> a platform built from the agent &amp; B2B perspective rather than retrofitted onto a consumer product. ApartWorld starts there — a full quotation builder, 5-way compare and an AW Rating no competitor offers end-to-end in B2B apartments.</div>
+</div>
+    <span class="s1-img-caption">25+ platforms analyzed across business model, user groups, supply type, and booking model — revealing a clear B2B/B2C split and an underserved agent-facing layer.</span>
+  </div>
+
+  <div class="s1-insight">
+    <p class="s1-insight-label">Key insight</p>
+    <p>The clearest gap: a platform that genuinely started from the agent and B2B perspective, rather than retrofitting it onto a consumer product. This became an early input into strategic conversations about where to focus first.</p>
+  </div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">What the internal ecosystem revealed</h2>
+  <p class="s1-body">At the same time, I was building understanding of the internal ecosystem. The picture that emerged was more complex than a booking product. ApartWorld involved over ten interdependent actor types — super admins, sub-admins, sales teams, operations teams, accounts teams, agency owners, agents, sub-agents, customers, and supplier APIs. Every booking touched multiple of these actors. Most of the friction happened at the handoffs between them.</p>
+
+  <div class="s1-img-placeholder">
+    <span class="s1-img-label">Visual 2</span>
+    <span class="s1-img-title">Ecosystem map</span>
+    <div class="fig fig-eco">
+  <div class="fig-eco-layer">
+    <span class="fig-k">Platform layer · ApartWorld / GRNconnect</span>
+    <div class="fig-actors">
+      <div class="fig-actor"><div class="nm">🏛️ Super Admin</div><div class="mt">Full system control</div></div>
+      <div class="fig-actor fr"><div class="nm">📊 Sub-Admin · Sales</div><div class="mt">Onboarding · KYC · credit</div></div>
+      <div class="fig-actor fr"><div class="nm">⚙️ Sub-Admin · Ops</div><div class="mt">Tickets · modifications</div></div>
+      <div class="fig-actor"><div class="nm">🧾 Sub-Admin · Accounts</div><div class="mt">Credit · invoicing</div></div>
+      <div class="fig-actor"><div class="nm">💳 Sub-Admin · Finance</div><div class="mt">Settlements · refunds</div></div>
+    </div>
+  </div>
+  <div class="fig-eco-layer">
+    <span class="fig-k">Agency layer</span>
+    <div class="fig-actors">
+      <div class="fig-actor fr"><div class="nm">🏢 Agency Owner</div><div class="mt">Account holder · KYC / CnC</div></div>
+      <div class="fig-actor fr"><div class="nm">👤 Agent</div><div class="mt">Search → quote → book</div></div>
+      <div class="fig-actor"><div class="nm">👥 Sub-Agent</div><div class="mt">Front-line client contact</div></div>
+    </div>
+  </div>
+  <div class="fig-eco-layer">
+    <span class="fig-k">External systems</span>
+    <div class="fig-actors">
+      <div class="fig-actor"><div class="nm">🧳 Customer</div><div class="mt">Receives quote &amp; booking</div></div>
+      <div class="fig-actor"><div class="nm">🔌 Supplier APIs</div><div class="mt">Inventory &amp; rates</div></div>
+      <div class="fig-actor"><div class="nm">💰 Payment Gateway</div><div class="mt">Online · credit · wallet</div></div>
+    </div>
+  </div>
+  <div class="fig-note f"><b>⚡ marks where friction concentrates.</b> 10+ interdependent actors — and most friction lived not inside any one role but at the <b>handoffs between them</b>: KYC lag, credit invisible until payment, tickets with no status, failed bookings surfaced only in next-day reports.</div>
+</div>
+    <span class="s1-img-caption">ApartWorld was not a single-user product. Every action depended on multiple actors and handoffs — with critical dependencies on external systems and internal teams that users couldn't see.</span>
+  </div>
+
+  <hr class="s1-divider">
+
+  <div class="s1-finding">
+    <p class="s1-finding-num">Finding 1</p>
+    <h2 class="s1-finding-title">Much of the work happened outside the product</h2>
+    <p class="s1-body">The strongest early pattern wasn't about the interface at all. Critical work consistently happened outside the platform — in spreadsheets, WhatsApp threads, email chains, and manual tracking systems.</p>
+    <p class="s1-body">Admins regularly downloaded multiple reports, merged them in Excel, then made decisions from that synthesized view. Agents coordinated with customers over WhatsApp, shared quotes as PDFs, and tracked booking status in personal spreadsheets. The platform was a step in a larger workflow — not the center of it.</p>
+    <p class="s1-body">This recontextualized something from the competitive benchmarking. Many platforms I'd analyzed showed the same workaround behaviors in their reviews and support forums. The industry instinct had been to add more features inside the product. What I was seeing suggested the problem wasn't missing features — it was that products weren't designed around how work actually flowed.</p>
+
+    <div class="s1-img-placeholder">
+      <span class="s1-img-label">Visual 3</span>
+      <span class="s1-img-title">Admin journey map</span>
+      <div class="fig">
+  <div class="fig-grid3">
+    <div class="fig-card soft">
+      <div class="fig-pill b" style="margin-bottom:8px;">Phase 1</div>
+      <div class="fig-h">Registration &amp; onboarding</div>
+      <p class="fig-sub">Approve and onboard agents with the right access rights.</p>
+      <div class="fig-pills" style="margin-top:10px;"><span class="fig-pill">Email</span><span class="fig-pill">Web platform</span></div>
+      <div class="fig-note f" style="margin-top:10px;font-size:12px;">'Add Agents' buried in a dropdown · KYC not yet mandatory · manual team assignment</div>
+    </div>
+    <div class="fig-card soft">
+      <div class="fig-pill b" style="margin-bottom:8px;">Phase 2</div>
+      <div class="fig-h">Agent management</div>
+      <p class="fig-sub">Monitor and manage accounts, credit and status.</p>
+      <div class="fig-pills" style="margin-top:10px;"><span class="fig-pill">Web platform</span></div>
+      <div class="fig-note f" style="margin-top:10px;font-size:12px;">Too many action icons · no search by geography · credit check separate from access rights</div>
+    </div>
+    <div class="fig-card soft">
+      <div class="fig-pill a" style="margin-bottom:8px;">Phase 3</div>
+      <div class="fig-h">Performance tracking</div>
+      <p class="fig-sub">Derive insights from agent activity and follow up.</p>
+      <div class="fig-pills" style="margin-top:10px;"><span class="fig-pill">Web</span><span class="fig-pill f">Excel ↗</span><span class="fig-pill f">Call / email ↗</span></div>
+      <div class="fig-note f" style="margin-top:10px;font-size:12px;">Download 3+ reports &amp; merge in Excel every morning · no dashboard · follow-ups tracked entirely off-platform</div>
+    </div>
+  </div>
+  <div class="fig-note"><b>Where work exits the product →</b> the further along the journey, the more work leaves the platform. By Phase 3 almost the entire workflow lives in Excel, calls and email.</div>
+</div>
+      <span class="s1-img-caption">Journey mapping revealed that admin workflows extended far beyond the product — with significant invisible effort happening in Excel and manual communication.</span>
+    </div>
+
+    <div class="s1-insight">
+      <p class="s1-insight-label">Key insight</p>
+      <p>The product was not the workflow. Users had built their own infrastructure around the product — and any solution that ignored this would add to the problem rather than reduce it.</p>
+    </div>
+  </div>
+
+  <div class="s1-finding">
+    <p class="s1-finding-num">Finding 2</p>
+    <h2 class="s1-finding-title">Admin work involved substantial invisible labor</h2>
+    <p class="s1-body">Admin workflows looked simple from the outside: approve agents, assign permissions, monitor performance. Journey mapping told a different story.</p>
+    <p class="s1-body">To monitor performance, admins downloaded multiple reports, merged them manually in Excel, filtered the data themselves, identified underperforming agents, and then reached out individually by phone or email. This loop repeated daily. None of that work was visible inside the product.</p>
+
+    <div class="s1-pull"><p>"I wish I had one dashboard where I could see everything — active agents, top performers, failed bookings — without downloading 5 reports every morning."</p></div>
+
+    <p class="s1-body">The competitive benchmarking had flagged that advanced reporting and role-specific dashboards were rare even among mature competitors. This wasn't a niche need — it was a gap the category had largely ignored.</p>
+
+    <div class="s1-insight">
+      <p class="s1-insight-label">Key insight</p>
+      <p>The opportunity wasn't adding features. It was reducing the cognitive and operational effort the product was currently forcing onto users — effort the competitive landscape confirmed was an industry-wide problem, not just a platform-specific one.</p>
+    </div>
+  </div>
+
+  <div class="s1-finding">
+    <p class="s1-finding-num">Finding 3</p>
+    <h2 class="s1-finding-title">Different users optimized for entirely different outcomes</h2>
+    <p class="s1-body">Admins and agents both used the same platform but were optimizing for opposite things. Admins needed control — verification steps, approval gates, visibility into what agents were doing. Agents needed speed — fewer steps, faster results, less back-and-forth. These goals didn't just differ — they occasionally conflicted.</p>
+    <p class="s1-body">This tension was visible in the competitive landscape too. Platforms that had tried to serve both B2B operators and agents within the same experience had generally resolved it badly — either by giving agents a watered-down consumer experience or by burying operational controls in admin panels that were too slow to use.</p>
+
+    <div class="s1-img-placeholder">
+      <span class="s1-img-label">Visual 4</span>
+      <span class="s1-img-title">Persona cards — Harman (admin) and Pradeep (agent)</span>
+      <div class="fig">
+  <div class="fig-grid2">
+    <div class="fig-card">
+      <div class="fig-pill b" style="margin-bottom:8px;">🏛️ Admin · optimises for control</div>
+      <div class="fig-h">Harman Singh — Super Admin</div>
+      <p class="fig-sub">8+ yrs in travel tech. Owns onboarding, activation, credit &amp; performance monitoring across Sales, Ops and Accounts.</p>
+      <div class="fig-k" style="margin:11px 0 5px;">Goals</div>
+      <p class="fig-sub">Daily insight without downloading reports · automate alerts · manage everything from one place · delegate follow-ups.</p>
+      <div class="fig-k" style="margin:11px 0 5px;">Key challenge</div>
+      <p class="fig-sub">Downloads &amp; merges multiple Excel reports daily; no single dashboard.</p>
+      <div class="fig-note" style="font-style:italic;">“I wish I had one dashboard where I could see everything — without downloading 5 reports every morning.”</div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-pill g" style="margin-bottom:8px;">👤 Agent · optimises for speed</div>
+      <div class="fig-h">Pradeep Kumar — Agent</div>
+      <p class="fig-sub">Works directly with customers, books on credit, finalises markup. Juggles queries across WhatsApp, email and the platform.</p>
+      <div class="fig-k" style="margin:11px 0 5px;">Goals</div>
+      <p class="fig-sub">Close bookings fast from client inputs · see real availability · compare well in one view · no slow, stale data.</p>
+      <div class="fig-k" style="margin:11px 0 5px;">Key challenge</div>
+      <p class="fig-sub">Slow search, no filter hierarchy, unavailable rooms still showing, weak comparisons.</p>
+      <div class="fig-note" style="font-style:italic;">“I just want to close bookings quickly with just the customer's inputs.”</div>
+    </div>
+  </div>
+  <div class="fig-note f"><b>The core tension →</b> Harman needs control and oversight; Pradeep needs speed and simplicity. A single experience can't fully serve both — role-based design isn't a preference, it's a structural requirement.</div>
+</div>
+      <span class="s1-img-caption">Despite shared needs for speed and reliability, admins and agents had fundamentally different success criteria — creating a core design tension the product had to navigate.</span>
+    </div>
+
+    <div class="s1-img-placeholder">
+      <span class="s1-img-label">Visual 5</span>
+      <span class="s1-img-title">Agent and admin journey comparison</span>
+      <div class="fig">
+  <div class="fig-pills" style="margin-bottom:12px;"><span class="fig-pill g">Agent — speed</span><span class="fig-pill b">Admin — control</span><span class="fig-pill f">⚡ where they collide</span></div>
+  
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">1 · Search</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Search properties by destination, dates, guests</div></div>
+        <div class="fig-lane"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">Monitor look-to-book ratio from a downloaded report</div></div>
+      </div>
+      <div class="fig-friction" style="margin-top:8px;"><b>⚡</b><span>Inventory mismatch: agent sees rooms already booked; admin sees stale report data.</span></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">2 · Compare</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Compare 4–5 properties side by side</div></div>
+        <div class="fig-lane gap"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">No visibility into what agents compare or shortlist</div></div>
+      </div>
+      
+    </div>
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">3 · Quote</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Generate quote PDF → share via email / WhatsApp</div></div>
+        <div class="fig-lane gap"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">No quote visibility — cannot track quote-to-booking</div></div>
+      </div>
+      <div class="fig-friction" style="margin-top:8px;"><b>⚡</b><span>Agent workflow exits the platform: quotes shared over WhatsApp/email. No tracking, no versioning.</span></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">4 · Book</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Confirm → initiate booking → choose payment</div></div>
+        <div class="fig-lane gap"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">No real-time booking alerts</div></div>
+      </div>
+      <div class="fig-friction" style="margin-top:8px;"><b>⚡</b><span>Payment desync: gateway shows failure despite success; agent cannot retry until ops clears the log.</span></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">5 · Confirm</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Wait 15–20 min → share voucher with customer</div></div>
+        <div class="fig-lane"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">Failed bookings seen only in next-day report</div></div>
+      </div>
+      <div class="fig-friction" style="margin-top:8px;"><b>⚡</b><span>Long confirmation delays push agents to competitors.</span></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div class="fig-k" style="margin-bottom:5px;">6 · Track</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-lane"><span class="fig-pill g" style="font-size:9.5px;padding:1px 7px;">Agent</span><div style="margin-top:5px;">Manage cancellations, modifications, tickets</div></div>
+        <div class="fig-lane"><span class="fig-pill b" style="font-size:9.5px;padding:1px 7px;">Admin</span><div style="margin-top:5px;">Download reports → merge in Excel → call / email to follow up</div></div>
+      </div>
+      <div class="fig-friction" style="margin-top:8px;"><b>⚡</b><span>Admin follow-up is entirely manual &amp; off-platform; agents get no ticket status.</span></div>
+    </div>
+</div>
+      <span class="s1-img-caption">Mapping both journeys side by side revealed where workflows intersected — and where dependencies created delays neither user could see or control.</span>
+    </div>
+
+    <div class="s1-insight">
+      <p class="s1-insight-label">Key insight</p>
+      <p>A single unified experience couldn't serve both users well. Role-specific design wasn't a preference — it was a structural requirement. And the competitive landscape confirmed that few products had actually solved it.</p>
+    </div>
+  </div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">Synthesis</h2>
+  <p class="s1-body">Internal research and competitive benchmarking kept surfacing the same themes from different directions:</p>
+  <div class="s1-synthesis">
+    <div class="s1-syn-card"><strong>Manual coordination</strong><p>Critical actions relied on emails, spreadsheets, and calls outside the product — a pattern confirmed by competitor reviews and support forums</p></div>
+    <div class="s1-syn-card"><strong>Workflow fragmentation</strong><p>Users switched across multiple systems to complete single tasks — an industry-wide condition, not an ApartWorld-specific problem</p></div>
+    <div class="s1-syn-card"><strong>Underserved B2B layer</strong><p>The agent and corporate booking experience was where the category had invested the least — making it the clearest strategic opening</p></div>
+  </div>
+
+  <hr class="s1-divider">
+
+  <h2 class="s1-h2">How this shaped product direction</h2>
+  <p class="s1-body">The two investigations converged on the same conclusion from different directions. The ecosystem work showed we weren't building a booking interface — we were building infrastructure to support an operational workflow. The competitive work showed the B2B agent layer was the category's most underserved audience.</p>
+  <p class="s1-body">Together, they made the case for starting there: build for agents and the B2B layer first, get that right, then expand toward direct consumer. That became an early strategic anchor for the project.</p>
+
+  <div class="s1-img-placeholder">
+    <span class="s1-img-label">Visual 6</span>
+    <span class="s1-img-title">Evidence → insight → opportunity map</span>
+    <div class="fig">
+    <div class="fig-card soft" style="margin-bottom:10px;">
+      <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+        <div><span class="fig-pill b">Evidence</span><p class="fig-sub" style="margin-top:5px;">Admins merge 3+ reports in Excel every morning for daily insight</p></div>
+        <div><span class="fig-pill">Insight →</span><p class="fig-sub" style="margin-top:5px;">Core analytical work happens entirely outside the product</p></div>
+        <div><span class="fig-pill a">Product direction →</span><p class="fig-sub" style="margin-top:5px;color:var(--ink);">Unified dashboard — agents, performers, failed bookings, look-to-book in one view</p></div>
+      </div>
+    </div>
+    <div class="fig-card soft" style="margin-bottom:10px;">
+      <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+        <div><span class="fig-pill b">Evidence</span><p class="fig-sub" style="margin-top:5px;">Agents share quotes via WhatsApp screenshots and custom formats, not the platform</p></div>
+        <div><span class="fig-pill">Insight →</span><p class="fig-sub" style="margin-top:5px;">Users build workarounds when the platform does not match their workflow</p></div>
+        <div><span class="fig-pill a">Product direction →</span><p class="fig-sub" style="margin-top:5px;color:var(--ink);">Integrated quotation builder — markup, preview, PDF, WhatsApp share, no external steps</p></div>
+      </div>
+    </div>
+    <div class="fig-card soft" style="margin-bottom:10px;">
+      <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+        <div><span class="fig-pill b">Evidence</span><p class="fig-sub" style="margin-top:5px;">Admins need control &amp; delegation; agents need speed &amp; simplicity</p></div>
+        <div><span class="fig-pill">Insight →</span><p class="fig-sub" style="margin-top:5px;">One experience cannot serve two fundamentally different needs</p></div>
+        <div><span class="fig-pill a">Product direction →</span><p class="fig-sub" style="margin-top:5px;color:var(--ink);">Role-based experiences with separate views and permission tiers</p></div>
+      </div>
+    </div>
+    <div class="fig-card soft" style="margin-bottom:10px;">
+      <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+        <div><span class="fig-pill b">Evidence</span><p class="fig-sub" style="margin-top:5px;">No one knows if payment succeeded; failed bookings surface a day later</p></div>
+        <div><span class="fig-pill">Insight →</span><p class="fig-sub" style="margin-top:5px;">Invisible dependencies create uncertainty at every handoff</p></div>
+        <div><span class="fig-pill a">Product direction →</span><p class="fig-sub" style="margin-top:5px;color:var(--ink);">Real-time status — payment, confirmation timers, in-platform ticket tracking</p></div>
+      </div>
+    </div>
+  <div class="fig-note"><b>The pattern across all four:</b> the platform was built around transactions, not workflows. Users adapted by building parallel workflows outside it — and each product direction brings those back inside: unified, visible, role-aware.</div>
+</div>
+    <span class="s1-img-caption">Findings from internal ecosystem research and competitive benchmarking converged on the same opportunities — making the case for a B2B-first product strategy.</span>
+  </div>
+
+  <div class="s1-reflection">
+    <p class="s1-label" style="margin-bottom:8px">Reflection</p>
+    <p>One real limitation of this phase was limited direct access to users. I relied on a structured session with the platform admin, one agent walkthrough session, stakeholder knowledge, workflow documentation, and the competitive analysis to triangulate understanding — but couldn't observe people working in context. That would have surfaced things interviews missed.</p>
+    <p>The benchmarking had its own limitation: several platforms I attempted to analyze had limited public-facing information, and a few I'd identified as relevant couldn't be found or confirmed. The analysis was most valuable where I could go deep — and less reliable as a statistical picture of the whole category.</p>
+    <p>If I revisited this study, I'd push for contextual observation earlier, even informally. Watching someone merge Excel reports for 20 minutes tells you more than asking them about it.</p>
+  </div>
+
+  <div class="s1-takeaway">
+    <p>Research changed the question from "What should the interface look like?" to "How does work actually happen — and what does the category tell us about where to focus first?"</p>
+  </div>
+</div>
+
+</main>
+<div class="study-pager"><a class="prev" href="apartworld.html"><div class="dir">&larr; Back</div><div class="ttl">ApartWorld overview</div></a><a class="next" href="study2.html"><div class="dir">Next study &rarr;</div><div class="ttl">02 &middot; Understanding users at scale</div></a></div>
+<div style="height:clamp(48px,7vw,80px)"></div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">ApartWorld</span>
+        <h2 style="margin-top:14px;">Want the full walk-through?</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="apartworld.html">Project overview &rarr;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="work.html">All work &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="apartworld.html">&larr; Back to ApartWorld</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

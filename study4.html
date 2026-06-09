@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('aw_unlocked')==='1')document.documentElement.classList.add('aw-ok');}catch(e){}</script>
+<title>ApartWorld &middot; Study 4 — Evaluating the flows &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="ApartWorld Study 4">
+<div class="gate" role="dialog" aria-label="Password protected">
+  <div class="gate-card">
+    <div class="gate-mark"><img src="assets/img/avatar.png" alt=""></div>
+    <span class="lock">&#128274; Protected case study</span>
+    <h1 style="margin-top:14px;">ApartWorld<span style="color:var(--orange);">.</span></h1>
+    <p>This is current, confidential client work. Enter the password to view the full project &amp; its four studies.</p>
+    <form>
+      <input type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <button class="btn btn-primary" type="submit">Unlock <span class="arr">&rarr;</span></button>
+    </form>
+    <div class="err-msg"></div>
+    <a class="back" href="work.html">&larr; Back to all work</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="subnav studies"><div class="subnav-inner"><a href="apartworld.html" class="sub-label" style="text-decoration:none;">&larr; ApartWorld</a><a href="study1.html">01 &middot; Understanding the ecosystem</a><a href="study2.html">02 &middot; Understanding users at scale</a><a href="study3.html">03 &middot; From research to MVP</a><a href="study4.html" class="on">04 &middot; Evaluating the flows</a></div></div>
+<main class="reader section" style="padding-top:clamp(20px,3vw,32px);">
+
+<style>
+  .s4{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .s4-back{font-size:13px;color:var(--color-text-tertiary);margin-bottom:2rem;display:flex;align-items:center;gap:6px}
+  .s4-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .s4-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .s4-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .s4-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .s4-meta-item{display:flex;flex-direction:column;gap:3px}
+  .s4-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .s4-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .s4-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .s4-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .s4-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .s4-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .s4-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .s4-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .s4-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .s4-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .s4-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .s4-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .s4-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .s4-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .s4-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:200px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .s4-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .s4-finding{margin:2rem 0}
+  .s4-finding-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .s4-finding-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 .75rem;line-height:1.3}
+  .s4-rq{margin:0;padding:0;list-style:none}
+  .s4-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .s4-rq li:last-child{border-bottom:none}
+  .s4-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .s4-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .s4-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .s4-phases{margin:1.5rem 0;display:flex;flex-direction:column}
+  .s4-phase{display:flex;gap:16px;align-items:flex-start;padding:.85rem 0;border-bottom:.5px solid var(--color-border-tertiary)}
+  .s4-phase:last-child{border-bottom:none}
+  .s4-phase-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);min-width:60px;margin-top:2px}
+  .s4-phase-content strong{font-size:14px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:3px}
+  .s4-phase-content p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55}
+  .s4-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.5rem 0}
+  .s4-stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .s4-stat-num{font-size:26px;font-weight:500;color:var(--color-text-primary);margin:0 0 3px}
+  .s4-stat-label{font-size:12px;color:var(--color-text-secondary);line-height:1.4;margin:0}
+  .s4-observation{display:flex;gap:12px;padding:.75rem 0;border-bottom:.5px solid var(--color-border-tertiary);align-items:flex-start}
+  .s4-observation:last-child{border-bottom:none}
+  .s4-obs-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+  .s4-obs-icon.pass{background:#dcfce7;color:#16a34a}
+  .s4-obs-icon.flag{background:#fef9c3;color:#ca8a04}
+  .s4-obs-body strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:2px}
+  .s4-obs-body p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .s4-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:13px}
+  .s4-table th{text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);padding:.5rem .75rem;border-bottom:.5px solid var(--color-border-secondary)}
+  .s4-table td{padding:.65rem .75rem;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.5}
+  .s4-table td:first-child{color:var(--color-text-primary);font-weight:500}
+  .s4-table tr:last-child td{border-bottom:none}
+  .s4-change-row{display:flex;gap:12px;padding:.75rem 0;border-bottom:.5px solid var(--color-border-tertiary);align-items:flex-start}
+  .s4-change-row:last-child{border-bottom:none}
+  .s4-change-type{font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+  .s4-change-type.refine{background:#fef9c3;color:#92400e}
+  .s4-change-type.valid{background:#dcfce7;color:#166534}
+  .s4-change-body strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:2px}
+  .s4-change-body p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .s4-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .s4-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .s4-reflection p:last-child{margin-bottom:0}
+  .s4-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .s4-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+</style>
+<div class="s4">
+  <a class="s4-back" href="apartworld.html">← ApartWorld</a>
+  <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);margin:0 0 1.75rem;"><img src="assets/img/aw/s4.png" alt="Study 4 cover" style="display:block;width:100%;height:auto;"></div>
+  <p class="s4-label">Study 4 of 4</p>
+  <h1 class="s4-h1">Evaluating decision-support workflows</h1>
+  <p class="s4-sub">Usability testing the compare and quotation experience — validating what worked, surfacing what didn't, and identifying where the design was quietly asking users to do its job</p>
+
+  <div class="s4-meta">
+    <div class="s4-meta-item"><span>Methods</span><span>Predictive heatmaps · Internal walkthroughs · Moderated prototype testing</span></div>
+    <div class="s4-meta-item"><span>Participants</span><span>4 travel agents · Internal colleague walkthroughs</span></div>
+    <div class="s4-meta-item"><span>Prototype</span><span>Mid-fidelity Figma prototype</span></div>
+    <div class="s4-meta-item"><span>Tools</span><span>Attention Insight · Figma · Maze</span></div>
+  </div>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">Why this study was needed</h2>
+  <p class="s4-body">By the time the compare and quotation flow reached prototype stage, it carried a significant amount of accumulated research logic. The toggle mechanism — a single switch activating the ability to add properties to a cart-like selection tray — was deliberate. So was the decision to unify compare and quotation creation into a single journey rather than treating them as separate flows. These weren't arbitrary choices. They came directly from the behavioral research finding that agents optimized for speed and operated across multiple client requests simultaneously.</p>
+  <p class="s4-body">But research rationale and usability are different problems. A flow can be logically sound and still fail under real working conditions. Three questions were still open going into testing:</p>
+  <ul class="s4-rq" style="margin-bottom:1.5rem">
+    <li><span class="s4-rq-num">—</span><span>Would agents find the toggle without instruction?</span></li>
+    <li><span class="s4-rq-num">—</span><span>Would the thumbnail cart read as interactive and purposeful?</span></li>
+    <li><span class="s4-rq-num">—</span><span>Would the Compare → Create Quotation transition feel like one continuous action or two separate decisions?</span></li>
+  </ul>
+
+  <div class="s4-pull"><p>"The question wasn't whether the flow would work in theory. It was whether it would work for someone who hadn't designed it — someone moving fast, with a client waiting."</p></div>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">Research questions</h2>
+  <ul class="s4-rq">
+    <li><span class="s4-rq-num">1</span><span>Is the toggle discoverable without instruction, and does its function read clearly?</span></li>
+    <li><span class="s4-rq-num">2</span><span>Do agents understand the cart tray — what it holds, what thumbnails represent, how to interact?</span></li>
+    <li><span class="s4-rq-num">3</span><span>Does the Compare → Create Quotation transition feel like one continuous action or two separate tasks?</span></li>
+    <li><span class="s4-rq-num">4</span><span>Where does attention fall naturally on the search results page — does it match intended hierarchy?</span></li>
+    <li><span class="s4-rq-num">5</span><span>Which elements create hesitation, and which are navigated without friction?</span></li>
+  </ul>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">Approach</h2>
+  <p class="s4-body">Three methods in sequence — each addressing a different kind of question, and each informing what to watch for in the next.</p>
+
+  <div class="s4-phases">
+    <div class="s4-phase">
+      <span class="s4-phase-label">Phase 1</span>
+      <div class="s4-phase-content">
+        <strong>Predictive heatmaps — Attention Insight</strong>
+        <p>Generated before any user touched the prototype. Used to predict where visual attention would land on the search results page — specifically to check whether the toggle was receiving enough natural draw relative to surrounding content.</p>
+      </div>
+    </div>
+    <div class="s4-phase">
+      <span class="s4-phase-label">Phase 2</span>
+      <div class="s4-phase-content">
+        <strong>Internal walkthrough sessions — colleagues</strong>
+        <p>A low-stakes first pass: structured enough to surface confusion points, informal enough to generate honest reactions. Two colleagues walked through the full flow unprompted, narrating as they went.</p>
+      </div>
+    </div>
+    <div class="s4-phase">
+      <span class="s4-phase-label">Phase 3</span>
+      <div class="s4-phase-content">
+        <strong>Moderated prototype testing — 4 travel agents</strong>
+        <p>Participants asked to complete tasks on a mid-fidelity Figma prototype using a think-aloud protocol. Sessions run remotely via Teams. Task performance, hesitation points, and verbal reasoning captured and analyzed.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">Task performance summary</h2>
+  <p class="s4-body" style="font-size:13px;color:var(--color-text-secondary)">4 participants · 3 core tasks · Think-aloud protocol · Mid-fidelity Figma prototype</p>
+
+  <div style="margin:1.5rem 0;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary)">
+      <span style="padding:.6rem .9rem;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary)">Task</span>
+      <span style="padding:.6rem .9rem;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary)">Completed</span>
+      <span style="padding:.6rem .9rem;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary)">Without prompting</span>
+      <span style="padding:.6rem .9rem;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary)">Hesitation</span>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:.5px solid var(--color-border-tertiary)">
+      <span style="padding:.7rem .9rem;font-size:13px;font-weight:500;color:var(--color-text-primary)">T1 — Find & activate the toggle</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#22c55e">4/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#f59e0b">2/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:var(--color-text-secondary)">Moderate</span>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:.5px solid var(--color-border-tertiary)">
+      <span style="padding:.7rem .9rem;font-size:13px;font-weight:500;color:var(--color-text-primary)">T2 — Select properties via cart tray</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#22c55e">4/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#22c55e">4/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:var(--color-text-secondary)">Low</span>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr">
+      <span style="padding:.7rem .9rem;font-size:13px;font-weight:500;color:var(--color-text-primary)">T3 — Compare → create quotation</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#22c55e">4/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:#22c55e">4/4</span>
+      <span style="padding:.7rem .9rem;font-size:13px;color:var(--color-text-secondary)">None</span>
+    </div>
+  </div>
+
+  <div class="s4-stat-row">
+    <div class="s4-stat"><p class="s4-stat-num">100%</p><p class="s4-stat-label">Task completion rate across all three tasks</p></div>
+    <div class="s4-stat"><p class="s4-stat-num">2/4</p><p class="s4-stat-label">Participants found the toggle without prompting on first attempt</p></div>
+    <div class="s4-stat"><p class="s4-stat-num">0</p><p class="s4-stat-label">Participants hesitated during the Compare → Quotation transition</p></div>
+  </div>
+
+  <hr class="s4-divider">
+
+  <div class="s4-finding">
+    <p class="s4-finding-tag">Finding 1 · Toggle discoverability</p>
+    <h2 class="s4-finding-title">The toggle was found — but not always first</h2>
+    <p class="s4-body">The compare/quote toggle sits in the top-left of the search results interface. Before any user touched the prototype, Attention Insight heatmaps predicted that initial attention would cluster around property images, property names, and the price block on the right — not the toggle. This mapped directly onto the behavioral research finding that agents scan for location and price signals before anything else.</p>
+    <p class="s4-body">In internal walkthrough sessions, two colleagues tried to select properties directly — clicking on cards — before locating the toggle. In user testing with travel agents, the pattern repeated: all four found the toggle, but only two found it without first looking elsewhere. Once found, comprehension was immediate. No participant was confused about what the toggle did. The issue was purely discoverability — getting to it in the first place.</p>
+    <p class="s4-body">In a product designed for speed, the difference between "found it eventually" and "found it immediately" is significant. An agent managing multiple client requests simultaneously cannot afford extra orientation time on every search.</p>
+
+    <div class="s4-img-placeholder">
+      <span class="s4-img-label">Visual 1</span>
+      <span class="s4-img-title">Attention Insight predictive heatmap — search results page</span>
+      <div class="fig">
+  <div class="fig-k" style="margin-bottom:10px;">Attention Insight predictive heatmaps · generated before any user touched the prototype</div>
+  <div class="ui-stack">
+    <div><img class="ui-shot" src="assets/img/aw-heatmap-grid.jpg" alt="Predictive heatmap over the list view of search results"><p class="ui-cap">List view — heat lands on property images, names and the price / AW Rating block; the Compare / Quote toggle (top-right) draws little attention.</p></div>
+    <div><img class="ui-shot" src="assets/img/aw-heatmap-list.jpg" alt="Predictive heatmap over the card-grid and map view of search results"><p class="ui-cap">Grid + map view — the same pattern: imagery and price pull the eye first; the toggle sits outside the natural scan path.</p></div>
+  </div>
+  <div class="fig-note f"><b>The prediction held up.</b> Attention clustered on images, names and the price block — exactly the location/price signals agents scan for. The toggle, the entry point to the whole compare/quote flow, drew the least — foreshadowing the discoverability issue testing later confirmed.</div>
+</div>
+      <span class="s4-img-caption">Heat concentrated on property images, names, and the price/rating block — the toggle in the top-left received significantly less natural draw, predicting the discoverability issue before testing confirmed it.</span>
+    </div>
+
+    <div style="margin:1.5rem 0">
+      <div class="s4-observation">
+        <div class="s4-obs-icon flag">!</div>
+        <div class="s4-obs-body"><strong>2 of 4 walkthrough participants tried clicking property cards before finding the toggle</strong><p>Assumed selection would work directly on the card — the toggle's role as an activation mechanism wasn't immediately apparent</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon flag">!</div>
+        <div class="s4-obs-body"><strong>2 of 4 agents in user testing looked elsewhere before locating the toggle</strong><p>Less experienced participants took longer; those with existing platform familiarity moved faster</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>Toggle function understood immediately once found — by all participants</strong><p>Comprehension was not the problem. Passive discoverability was.</p></div>
+      </div>
+    </div>
+
+    <div class="s4-insight">
+      <p class="s4-insight-label">Key insight</p>
+      <p>The toggle works as a mechanism. But it relies on users actively looking for it — a risky assumption in a fast-moving B2B context. A visual state change or attention anchor triggered on search completion would reduce reliance on active discovery.</p>
+    </div>
+  </div>
+
+  <div class="s4-finding">
+    <p class="s4-finding-tag">Finding 2 · Cart tray interaction</p>
+    <h2 class="s4-finding-title">The highest-risk decision performed better than expected</h2>
+    <p class="s4-body">The thumbnail tray at the bottom of the screen was the design decision I was most uncertain about going into testing. A persistent, cart-style row of small property images — each revealing the property name on hover — felt like it could easily read as decorative rather than functional, or as too small to interact with confidently.</p>
+    <p class="s4-body">It didn't. All four participants understood the tray as a selection holder within the first 30 seconds of interaction. They hovered thumbnails to confirm property names, used the tray to track their shortlist, and moved toward Compare and Create Quotation without significant hesitation. What did create a brief pause — across most participants — was the two-button structure. Not confusion about what either button did, but a moment of deliberate consideration: do I need to compare before I can create a quotation, or are these independent?</p>
+
+    <div class="s4-img-placeholder">
+      <span class="s4-img-label">Visual 2</span>
+      <span class="s4-img-title">Cart tray — thumbnail hover state</span>
+      <div class="fig">
+  <div class="ui-stack">
+    <div><img class="ui-shot" src="assets/img/aw-cart-1.png" alt="Cart tray with one property selected, prompting to add at least two to compare"><p class="ui-cap">Cart (1/5) — the tray prompts the agent to add at least two properties before Compare unlocks.</p></div>
+    <div><img class="ui-shot" src="assets/img/aw-cart-5.png" alt="Cart tray filled with five property thumbnails, Compare and Create Quotation actions"><p class="ui-cap">Cart (5/5) — thumbnails track the shortlist; Compare and Create Quotation sit together as the two next actions.</p></div>
+  </div>
+  <div class="fig-grid3" style="margin-top:12px;">
+    <div class="fig-card soft"><span class="fig-pill g">✓ Understood</span><p class="fig-sub" style="margin-top:7px;">4/4 read the tray as a selection holder — not decorative.</p></div>
+    <div class="fig-card soft"><span class="fig-pill g">✓ Natural</span><p class="fig-sub" style="margin-top:7px;">Hover-to-reveal property names used by all to confirm selections.</p></div>
+    <div class="fig-card soft"><span class="fig-pill f">! Brief pause</span><p class="fig-sub" style="margin-top:7px;">Compare vs Create Quotation — unsure if Compare was required or optional.</p></div>
+  </div>
+</div>
+      <span class="s4-img-caption">The tray was understood quickly as a selection tracker. Hover-to-reveal property names worked naturally. The two-action structure — Compare vs Create Quotation — prompted brief deliberation about whether one was a prerequisite for the other.</span>
+    </div>
+
+    <div style="margin:1.5rem 0">
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>4/4 participants understood the tray's purpose without explanation</strong><p>Understood as a selection holder — not decorative, not confusing</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>Hover-to-reveal property names worked naturally</strong><p>All participants used it to confirm which properties were in their selection</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon flag">!</div>
+        <div class="s4-obs-body"><strong>Most participants paused briefly at the Compare vs Create Quotation choice</strong><p>Not confused — but uncertain whether Compare was a required step or an optional one</p></div>
+      </div>
+    </div>
+
+    <div class="s4-insight">
+      <p class="s4-insight-label">Key insight</p>
+      <p>The tray worked. The two-action structure worked. What needed clarifying was the relationship between them — agents weren't sure if Compare was a gate or a choice. That's a labeling and hierarchy problem, not a structural one.</p>
+    </div>
+  </div>
+
+  <div class="s4-finding">
+    <p class="s4-finding-tag">Finding 3 · Compare → Quotation transition</p>
+    <h2 class="s4-finding-title">The smoothest moment in the entire flow</h2>
+    <p class="s4-body">The comparison table let agents evaluate properties side by side across ratings, nearby attractions, highlights, amenities, price, meal plan, and unit configuration. A Create Quotation button sat persistently in the top-right of the compare view.</p>
+    <p class="s4-body">Every participant who reached the comparison table moved into quotation creation without hesitation — zero pauses, zero backtracking, zero questions. The button's placement and label were unambiguous, and the surrounding context made the action feel like a logical continuation rather than a new decision. The quotation view's additional controls — markup percentage, options to hide cancellation policy or price from the client — were navigated smoothly and correctly read as client-facing presentation choices, not booking parameters.</p>
+    <p class="s4-body">The decision to make quotation creation accessible from both the cart tray and the comparison table paid off. Agents used whichever entry point they were closest to — neither felt like a workaround.</p>
+
+    <div class="s4-img-placeholder">
+      <span class="s4-img-label">Visual 3</span>
+      <span class="s4-img-title">Compare table → Quotation creation</span>
+      <div class="fig">
+  <div class="ui-stack">
+    <div><img class="ui-shot" src="assets/img/aw-compare.png" alt="Compare Properties view — five apartments side by side across ratings, attractions, amenities, price and units"><p class="ui-cap">Compare — five properties side by side across ratings, nearby attractions, highlights, price, meal plan &amp; units, with a persistent Create Quotation button.</p></div>
+    <div><img class="ui-shot" src="assets/img/aw-quote.png" alt="Quotation builder with markup percentage and client-facing presentation controls"><p class="ui-cap">Quotation — markup %, plus client-facing controls to include preview links or hide cancellation details / price. Share as PDF or email.</p></div>
+  </div>
+  <div class="fig-grid3" style="margin-top:12px;">
+    <div class="fig-card soft"><span class="fig-pill g">✓ 4/4</span><p class="fig-sub" style="margin-top:7px;">Moved compare → quotation with zero hesitation or backtracking.</p></div>
+    <div class="fig-card soft"><span class="fig-pill g">✓ Understood</span><p class="fig-sub" style="margin-top:7px;">Markup &amp; presentation controls read as client-facing, not booking params.</p></div>
+    <div class="fig-card soft"><span class="fig-pill g">✓ Dual entry</span><p class="fig-sub" style="margin-top:7px;">Two entry points reduced friction — agents used whichever was closest.</p></div>
+  </div>
+</div>
+      <span class="s4-img-caption">The persistent Create Quotation button in the compare view — and the clear presentation controls in the quotation view — made this the most frictionless transition in the entire flow.</span>
+    </div>
+
+    <div style="margin:1.5rem 0">
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>4/4 moved from compare to quotation without hesitation</strong><p>Zero backtracking, zero requests for clarification at this stage</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>Markup and presentation controls understood correctly by all participants</strong><p>Read as client-facing choices, not booking parameters</p></div>
+      </div>
+      <div class="s4-observation">
+        <div class="s4-obs-icon pass">✓</div>
+        <div class="s4-obs-body"><strong>Dual entry points reduced friction rather than adding it</strong><p>Participants used whichever felt closer — no one expressed confusion about having two options</p></div>
+      </div>
+    </div>
+
+    <div class="s4-insight">
+      <p class="s4-insight-label">Key insight</p>
+      <p>The decision to unify compare and quotation into a single journey — with a persistent Create Quotation button in the compare view — was validated completely. This was the part of the flow that required the least rethinking.</p>
+    </div>
+  </div>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">What testing validated — and what it refined</h2>
+  <div style="margin:1.5rem 0">
+    <div class="s4-change-row">
+      <span class="s4-change-type refine">Refine</span>
+      <div class="s4-change-body"><strong>Toggle discoverability</strong><p>Explore a visual state change or attention anchor triggered on search completion — reduce reliance on users actively hunting for the toggle</p></div>
+    </div>
+    <div class="s4-change-row">
+      <span class="s4-change-type refine">Refine</span>
+      <div class="s4-change-body"><strong>Compare vs Create Quotation relationship</strong><p>Clarify whether Compare is a required step or an optional one — through labeling, visual hierarchy, or a brief tooltip on first use</p></div>
+    </div>
+    <div class="s4-change-row">
+      <span class="s4-change-type valid">Validated</span>
+      <div class="s4-change-body"><strong>Cart thumbnail tray</strong><p>Purpose understood immediately · hover interaction natural · selection tracking worked as intended</p></div>
+    </div>
+    <div class="s4-change-row">
+      <span class="s4-change-type valid">Validated</span>
+      <div class="s4-change-body"><strong>Compare → Quotation transition</strong><p>Most frictionless moment in the flow · persistent CTA placement correct · dual entry points reduced rather than added friction</p></div>
+    </div>
+    <div class="s4-change-row">
+      <span class="s4-change-type valid">Validated</span>
+      <div class="s4-change-body"><strong>Quotation presentation controls</strong><p>Markup, hide price, hide cancellation policy — all correctly understood as client-facing choices</p></div>
+    </div>
+  </div>
+
+  <hr class="s4-divider">
+
+  <h2 class="s4-h2">Assumptions testing challenged</h2>
+  <table class="s4-table">
+    <thead><tr><th>Going into testing</th><th>What testing showed</th></tr></thead>
+    <tbody>
+      <tr><td>The thumbnail tray was the highest-risk interaction</td><td>It was the most confidently navigated element — understood by all four participants without explanation</td></tr>
+      <tr><td>Two entry points for quotation creation would confuse users</td><td>Multiple entry points reduced friction — agents used whichever felt closest, neither felt like a workaround</td></tr>
+      <tr><td>The toggle would be noticed naturally alongside other UI</td><td>Attention gravitated to property content first — the toggle required active looking, not passive noticing</td></tr>
+      <tr><td>Compare and Create Quotation needed clearer visual separation</td><td>Separation wasn't the issue — the relationship between them needed clearer framing</td></tr>
+    </tbody>
+  </table>
+
+  <div class="s4-reflection">
+    <p class="s4-label" style="margin-bottom:8px">Reflection</p>
+    <p>Four participants is a real limitation — and one worth being direct about. Access to travel agents was constrained throughout the project, and with multiple flows still in active development simultaneously, the testing I could run was narrower than I'd have liked. The sessions prioritized the compare and quotation flow because it was the highest-stakes workflow at that stage, but it meant other flows received less rigorous evaluation.</p>
+    <p>I'm still working out what a better approach looks like given these constraints. A few directions I'm actively thinking through: unmoderated testing via Maze to reduce the access burden and increase sample size; running shorter, more focused sessions on one element at a time rather than an end-to-end flow; or bringing in participants earlier — at wireframe stage — when the cost of iteration is lower and you need fewer people to surface fundamental issues.</p>
+    <p>The findings from this round were directionally clear and held up across participants. But I'd want a second round — particularly on the toggle refinement — before treating any of these as fully validated rather than strongly indicated.</p>
+  </div>
+
+  <div class="s4-takeaway">
+    <p>Testing didn't tell us the flow was wrong. It told us where the design was doing the work — and where it was quietly asking users to.</p>
+  </div>
+</div>
+
+</main>
+<div class="study-pager"><a class="prev" href="study3.html"><div class="dir">&larr; Previous study</div><div class="ttl">03 &middot; From research to MVP</div></a><a class="next" href="apartworld.html"><div class="dir">Done &rarr;</div><div class="ttl">Back to project overview</div></a></div>
+<div style="height:clamp(48px,7vw,80px)"></div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">ApartWorld</span>
+        <h2 style="margin-top:14px;">Want the full walk-through?</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="apartworld.html">Project overview &rarr;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="work.html">All work &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="apartworld.html">&larr; Back to ApartWorld</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

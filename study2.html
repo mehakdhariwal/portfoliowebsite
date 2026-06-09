@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('aw_unlocked')==='1')document.documentElement.classList.add('aw-ok');}catch(e){}</script>
+<title>ApartWorld &middot; Study 2 — Understanding users at scale &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="ApartWorld Study 2">
+<div class="gate" role="dialog" aria-label="Password protected">
+  <div class="gate-card">
+    <div class="gate-mark"><img src="assets/img/avatar.png" alt=""></div>
+    <span class="lock">&#128274; Protected case study</span>
+    <h1 style="margin-top:14px;">ApartWorld<span style="color:var(--orange);">.</span></h1>
+    <p>This is current, confidential client work. Enter the password to view the full project &amp; its four studies.</p>
+    <form>
+      <input type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <button class="btn btn-primary" type="submit">Unlock <span class="arr">&rarr;</span></button>
+    </form>
+    <div class="err-msg"></div>
+    <a class="back" href="work.html">&larr; Back to all work</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="subnav studies"><div class="subnav-inner"><a href="apartworld.html" class="sub-label" style="text-decoration:none;">&larr; ApartWorld</a><a href="study1.html">01 &middot; Understanding the ecosystem</a><a href="study2.html" class="on">02 &middot; Understanding users at scale</a><a href="study3.html">03 &middot; From research to MVP</a><a href="study4.html">04 &middot; Evaluating the flows</a></div></div>
+<main class="reader section" style="padding-top:clamp(20px,3vw,32px);">
+
+<style>
+  .s2{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .s2-back{font-size:13px;color:var(--color-text-tertiary);margin-bottom:2rem;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .s2-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .s2-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .s2-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .s2-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .s2-meta-item{display:flex;flex-direction:column;gap:3px}
+  .s2-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .s2-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .s2-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .s2-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .s2-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .s2-h3{font-size:14px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em;margin:1.75rem 0 .75rem}
+  .s2-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .s2-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .s2-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .s2-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .s2-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .s2-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .s2-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .s2-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .s2-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .s2-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:200px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .s2-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .s2-finding{margin:2rem 0}
+  .s2-finding-num{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);margin-bottom:4px}
+  .s2-finding-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 .75rem;line-height:1.3}
+  .s2-rq{margin:0;padding:0;list-style:none}
+  .s2-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .s2-rq li:last-child{border-bottom:none}
+  .s2-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .s2-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .s2-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .s2-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.25rem 0}
+  .s2-col-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .s2-col-card strong{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);display:block;margin-bottom:6px}
+  .s2-col-card p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6}
+  .s2-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:1.5rem 0}
+  .s2-stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .s2-stat-num{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 4px}
+  .s2-stat-label{font-size:12px;color:var(--color-text-secondary);line-height:1.4;margin:0}
+  .s2-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:13px}
+  .s2-table th{text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);padding:.5rem .75rem;border-bottom:.5px solid var(--color-border-secondary)}
+  .s2-table td{padding:.65rem .75rem;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.5}
+  .s2-table td:first-child{color:var(--color-text-primary);font-weight:500}
+  .s2-table tr:last-child td{border-bottom:none}
+  .s2-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .s2-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .s2-reflection p:last-child{margin-bottom:0}
+  .s2-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .s2-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+  .s2-group-divider{display:flex;align-items:center;gap:12px;margin:2rem 0}
+  .s2-group-divider span{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);white-space:nowrap}
+  .s2-group-divider::before,.s2-group-divider::after{content:'';flex:1;height:.5px;background:var(--color-border-tertiary)}
+</style>
+
+<div class="s2">
+  <a class="s2-back" href="apartworld.html">← ApartWorld</a>
+  <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);margin:0 0 1.75rem;"><img src="assets/img/aw/s2.png" alt="Study 2 cover" style="display:block;width:100%;height:auto;"></div>
+
+  <p class="s2-label">Study 2 of 4</p>
+  <h1 class="s2-h1">Understanding users at scale</h1>
+  <p class="s2-sub">Surveying 124 travel agents and conducting in-depth sessions with internal admin users — to move from ecosystem understanding to behavioral understanding</p>
+
+  <div class="s2-meta">
+    <div class="s2-meta-item"><span>Methods</span><span>Survey · In-depth interviews · Walkthrough sessions</span></div>
+    <div class="s2-meta-item"><span>Participants</span><span>124 travel agents (survey) · 3–5 GRNconnect admins (interviews)</span></div>
+    <div class="s2-meta-item"><span>Tools</span><span>Typeform · Teams · Excel</span></div>
+  </div>
+
+  <hr class="s2-divider">
+
+  <h2 class="s2-h2">Why this study was needed</h2>
+  <p class="s2-body">Study 1 established the shape of the ecosystem — who the actors were, how work moved between them, and where the structural gaps were. But ecosystem understanding and behavioral understanding are different things. Knowing that agents and admins existed within the system didn't tell us how they actually made decisions, what constrained them, or what they were really optimizing for day to day.</p>
+  <p class="s2-body">Several assumptions had already taken root on the team — about agents needing more filters, about apartment booking resembling hotel booking, about admin workflows being straightforward to support. These weren't unreasonable. But designing around untested assumptions means optimizing for what teams believe users need, not what users actually do.</p>
+  <p class="s2-body">This study ran two parallel investigations: a large-scale survey of travel agents to validate behavioral assumptions at breadth, and in-depth interview and walkthrough sessions with GRNconnect admins to understand the operational layer that ApartWorld's infrastructure would need to support.</p>
+
+  <div class="s2-pull"><p>"Ecosystem understanding told us who was in the system. Behavioral understanding told us what they were actually trying to do — and where the product was making that harder."</p></div>
+
+  <hr class="s2-divider">
+
+  <h2 class="s2-h2">Research questions</h2>
+  <ul class="s2-rq">
+    <li><span class="s2-rq-num">1</span><span>How do travel agents actually make decisions under real working conditions?</span></li>
+    <li><span class="s2-rq-num">2</span><span>Which early assumptions about agent behavior hold up — and which don't?</span></li>
+    <li><span class="s2-rq-num">3</span><span>How does apartment booking differ from hotel booking in practice?</span></li>
+    <li><span class="s2-rq-num">4</span><span>What does admin work actually look like day to day — and how much of it happens outside the product?</span></li>
+    <li><span class="s2-rq-num">5</span><span>What operational infrastructure does ApartWorld need to support from the start?</span></li>
+  </ul>
+
+  <hr class="s2-divider">
+
+  <h2 class="s2-h2">Approach</h2>
+  <p class="s2-body">Two methods, two user groups — chosen to address different research needs simultaneously.</p>
+
+  <div class="s2-two-col">
+    <div class="s2-col-card">
+      <strong>Travel agents — survey</strong>
+      <p>124 responses via Typeform across agent profile, booking behavior, search and filters, quote sharing, competitor usage, reporting needs, and open-ended frustrations. Quantitative findings analyzed alongside thematic coding of open-ended responses.</p>
+    </div>
+    <div class="s2-col-card">
+      <strong>GRNconnect admins — interviews & walkthroughs</strong>
+      <p>In-depth sessions with 3–5 admins covering roles and hierarchy, day-to-day actions, agent management workflows, reporting and analytics, and pain points. Platform walkthroughs conducted to observe actual task behavior.</p>
+    </div>
+  </div>
+
+  <div class="s2-methods">
+    <span class="s2-method-tag">Survey design & analysis</span>
+    <span class="s2-method-tag">Thematic coding</span>
+    <span class="s2-method-tag">In-depth interviews</span>
+    <span class="s2-method-tag">Platform walkthroughs</span>
+    <span class="s2-method-tag">Behavioral clustering</span>
+    <span class="s2-method-tag">SME triangulation</span>
+  </div>
+
+  <div class="s2-img-placeholder">
+    <span class="s2-img-label">Visual 1</span>
+    <span class="s2-img-title">Study overview — two user groups, two methods</span>
+    <div class="fig">
+  <div class="fig-grid2">
+    <div class="fig-card">
+      <div class="fig-pill g" style="margin-bottom:10px;">Stream A · Agent survey</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-card soft"><div class="fig-num">122</div><div class="fig-sub">responses</div></div>
+        <div class="fig-card soft"><div class="fig-num">70.5%</div><div class="fig-sub">10+ yrs experience</div></div>
+        <div class="fig-card soft"><div class="fig-num">87.7%</div><div class="fig-sub">serve family travellers</div></div>
+        <div class="fig-card soft"><div class="fig-num">8</div><div class="fig-sub">topic areas</div></div>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-pill b" style="margin-bottom:10px;">Stream B · Admin interviews</div>
+      <div class="fig-grid2" style="gap:8px;">
+        <div class="fig-card soft"><div class="fig-num" style="color:var(--fig-blue);">3</div><div class="fig-sub">admin sessions</div></div>
+        <div class="fig-card soft"><div class="fig-num" style="color:var(--fig-blue);">4</div><div class="fig-sub">personas identified</div></div>
+        <div class="fig-card soft"><div class="fig-num" style="color:var(--fig-blue);">8+</div><div class="fig-sub">yrs experience (avg)</div></div>
+        <div class="fig-card soft"><div class="fig-num" style="color:var(--fig-blue);">5</div><div class="fig-sub">pain theme clusters</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fig-note"><b>Two streams, run in parallel.</b> The survey gave patterns at scale (79.5% say search is the most time-consuming step); the admin sessions gave operational depth (no single dashboard — correlation done in Excel every morning). The most useful findings were where the two converged.</div>
+</div>
+    <span class="s2-img-caption">124 agent survey responses · 70% of respondents with 10+ years of experience · 3–5 admin sessions covering roles, workflows, reporting, and pain points.</span>
+  </div>
+
+  <div class="s2-group-divider"><span>Travel agents</span></div>
+
+  <div class="s2-finding">
+    <p class="s2-finding-num">Finding 1</p>
+    <h2 class="s2-finding-title">Agents weren't exploring — they were trying to close decisions quickly</h2>
+    <p class="s2-body">I expected agents to behave something like careful consumers — comparing options, narrowing gradually, weighing tradeoffs. The data suggested something different. Location (76.6%) and price (74.2%) dominated decision-making by a significant margin. Guest reviews came third at 54%. Everything else trailed considerably.</p>
+    <p class="s2-body">The contradiction was telling. Agents frequently requested more controls, more filters, richer information in open-ended responses — yet their actual decisions relied on a much smaller framework. What they asked for and what they used were different things.</p>
+
+    <div class="s2-stats">
+      <div class="s2-stat"><p class="s2-stat-num">76.6%</p><p class="s2-stat-label">Location as top decision factor</p></div>
+      <div class="s2-stat"><p class="s2-stat-num">74.2%</p><p class="s2-stat-label">Price as top decision factor</p></div>
+      <div class="s2-stat"><p class="s2-stat-num">79.8%</p><p class="s2-stat-label">Said searching for the right property was most time-consuming</p></div>
+    </div>
+
+    <div class="s2-img-placeholder">
+      <span class="s2-img-label">Visual 2</span>
+      <span class="s2-img-title">Decision factor hierarchy</span>
+      <div class="fig">
+  <div class="fig-k" style="margin-bottom:10px;">Top property-selection factors · 122 agents, multi-select</div>
+  <div class="fig-bars"><div class="fig-bar"><div class="lab"><span>Location</span><b>77.9%</b></div><div class="track"><div class="fill" style="width:77.9%"></div></div></div><div class="fig-bar"><div class="lab"><span>Price</span><b>73.8%</b></div><div class="track"><div class="fill" style="width:73.8%"></div></div></div><div class="fig-bar b2"><div class="lab"><span>Guest reviews</span><b>54.1%</b></div><div class="track"><div class="fill" style="width:54.1%"></div></div></div><div class="fig-bar b2"><div class="lab"><span>Flexibility / cancellation policy</span><b>43.4%</b></div><div class="track"><div class="fill" style="width:43.4%"></div></div></div><div class="fig-bar dim"><div class="lab"><span>Brand / reputation</span><b>34.4%</b></div><div class="track"><div class="fill" style="width:34.4%"></div></div></div><div class="fig-bar dim"><div class="lab"><span>Commission / margin</span><b>15.6%</b></div><div class="track"><div class="fill" style="width:15.6%"></div></div></div></div>
+  <div class="fig-note"><b>The contradiction:</b> agents kept requesting more filters in open text — yet their actual decisions rested on just 2–3 factors. Commission, their own financial incentive, ranked last at 15.6%. They optimise for speed and certainty, not exploration.</div>
+</div>
+      <span class="s2-img-caption">Location and price dominated at 76.6% and 74.2% — while agents simultaneously requested more controls in open-ended responses, revealing a gap between stated preferences and actual behavior.</span>
+    </div>
+
+    <div class="s2-insight">
+      <p class="s2-insight-label">Key insight</p>
+      <p>Agents weren't optimizing for exploration — they were optimizing for speed and certainty. Adding more filters risked increasing complexity without improving decisions.</p>
+    </div>
+  </div>
+
+  <div class="s2-finding">
+    <p class="s2-finding-num">Finding 2</p>
+    <h2 class="s2-finding-title">Search friction was a trust problem, not a speed problem</h2>
+    <p class="s2-body">Nearly 80% of agents identified searching for the right property as their most time-consuming task. My first interpretation was a speed problem. The open-ended responses complicated that picture — frustrations clustered around unavailable rooms appearing in results, inventory mismatches, pricing inconsistencies, and properties showing as available before revealing they weren't. These weren't speed issues. They were reliability issues.</p>
+    <p class="s2-body">Agents could search. They struggled to trust what they found. The fragmentation extended beyond the product too — only 23.4% used the platform's built-in quote feature. 36.3% shared options by screenshotting the compare screen and sending via WhatsApp. The platform was one node in a workflow agents had assembled themselves.</p>
+
+    <div class="s2-img-placeholder">
+      <span class="s2-img-label">Visual 3</span>
+      <span class="s2-img-title">Frustration cluster map</span>
+      <div class="fig">
+  <div class="fig-grid3"><div class="fig-card soft"><div style="font-size:20px;">💰</div><div class="fig-h" style="margin-top:6px;">Pricing &amp; competitiveness</div><div class="fig-pill f" style="margin:6px 0;">~33% of mentions</div><p class="fig-sub">Rates 10–15% higher than competitors; discrepancies between location- and name-based search.</p></div><div class="fig-card soft"><div style="font-size:20px;">🔍</div><div class="fig-h" style="margin-top:6px;">Search performance &amp; inventory</div><div class="fig-pill f" style="margin:6px 0;">~25% of mentions</div><p class="fig-sub">10–15s loads; available rooms sold out at booking; exact-name matching required.</p></div><div class="fig-card soft"><div style="font-size:20px;">🛏️</div><div class="fig-h" style="margin-top:6px;">Room &amp; property details</div><div class="fig-pill f" style="margin:6px 0;">~16% of mentions</div><p class="fig-sub">Room categories &amp; bed types differ from the hotel; blurred photos; incomplete meal-plan info.</p></div><div class="fig-card soft"><div style="font-size:20px;">📋</div><div class="fig-h" style="margin-top:6px;">Booking flow &amp; modifications</div><div class="fig-pill f" style="margin:6px 0;">~15% of mentions</div><p class="fig-sub">Cannot link bookings for one client; re-entering details; no review page; hard to modify.</p></div><div class="fig-card soft"><div style="font-size:20px;">🔄</div><div class="fig-h" style="margin-top:6px;">Cancellation &amp; policy clarity</div><div class="fig-pill f" style="margin:6px 0;">~12% of mentions</div><p class="fig-sub">Policy in search differs from booking; refundable label but no hold allowed.</p></div></div>
+  <div class="fig-note f"><b>Different symptoms, one shared problem: trust.</b> Pricing, search gaps, room mismatches, booking failures and policy inconsistencies all erode the agent's ability to make promises they can keep to clients.</div>
+</div>
+      <span class="s2-img-caption">What looked like five separate frustrations — search performance, inventory mismatch, pricing inconsistencies, booking flow, cancellation issues — pointed toward a single underlying problem: agents couldn't trust what they found.</span>
+    </div>
+
+    <div class="s2-insight">
+      <p class="s2-insight-label">Key insight</p>
+      <p>Search confidence mattered more than search speed or volume. Solving for trust — not performance — was the more meaningful design problem.</p>
+    </div>
+  </div>
+
+  <div class="s2-finding">
+    <p class="s2-finding-num">Finding 3</p>
+    <h2 class="s2-finding-title">Apartment decisions couldn't inherit hotel decision models</h2>
+    <p class="s2-body">Survey data showed hotel and apartment decision factors overlapping — location, price, reviews appeared in both. But apartment decisions introduced additional considerations: size, facilities, amenities, guest policies. SME discussions revealed why the difference runs deeper than a longer checklist.</p>
+    <p class="s2-body">A hotel star rating is a cognitive shortcut — it bundles expectations about service quality, room standards, and security into a single number agents already know how to interpret. Apartments had no equivalent. Every attribute had to be evaluated manually, which meant agents had to assemble confidence from scratch for every property.</p>
+
+    <div class="s2-img-placeholder">
+      <span class="s2-img-label">Visual 4</span>
+      <span class="s2-img-title">Hotel vs apartment mental model comparison</span>
+      <div class="fig">
+  <div class="fig-grid2">
+    <div class="fig-card">
+      <div class="fig-pill b" style="margin-bottom:8px;">🏨 Hotel — 3 signals</div>
+      <div class="fig-h" style="margin-bottom:8px;">Fast path · high confidence</div>
+      <div class="fig-step"><div class="fig-dot b">1</div><div><b>Star rating</b><p class="fig-sub">Bundled quality signal</p></div></div>
+      <div class="fig-step"><div class="fig-dot b">2</div><div><b>Brand / reputation</b><p class="fig-sub">Predictable experience</p></div></div>
+      <div class="fig-step"><div class="fig-dot g">✓</div><div><b>Decision confidence</b><p class="fig-sub">2–3 signals are enough</p></div></div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-pill a" style="margin-bottom:8px;">🏠 Apartment — 8+ signals</div>
+      <div class="fig-h" style="margin-bottom:8px;">Manual assembly · uncertain</div>
+      <p class="fig-sub" style="line-height:1.9;">Location · size &amp; configuration · facilities &amp; amenities · guest policies · photo quality · external reviews · price vs comp set · cancellation policy…</p>
+      <div class="fig-step" style="margin-top:6px;"><div class="fig-dot o">✓</div><div><b>Confidence still uncertain</b><p class="fig-sub">No star-rating equivalent</p></div></div>
+    </div>
+  </div>
+  <div class="fig-note"><b>Product implication:</b> the <b>AW Rating</b> bundles location, facilities, guest-experience and price scores into one signal — giving apartments the decision shortcut hotels get from stars. The challenge is making agents trust the composite score.</div>
+</div>
+      <span class="s2-img-caption">A hotel rating compresses multiple variables into a single trust signal. Apartment decisions require agents to evaluate each attribute independently — significantly increasing cognitive load before a booking can be confirmed.</span>
+    </div>
+
+    <div class="s2-insight">
+      <p class="s2-insight-label">Key insight</p>
+      <p>Hotel ratings act as cognitive shortcuts. Apartments lacked an equivalent trust framework — which meant the product had to create one rather than borrow from the hotel model.</p>
+    </div>
+  </div>
+
+  <div class="s2-group-divider"><span>GRNconnect admins</span></div>
+
+  <div class="s2-finding">
+    <p class="s2-finding-num">Finding 4</p>
+    <h2 class="s2-finding-title">Admin work was far more operationally complex than the ecosystem view suggested</h2>
+    <p class="s2-body">Study 1 established that admin workflows extended beyond the product into spreadsheets and manual coordination. The GRNconnect sessions added depth to that picture. Admin roles operated across three levels — super admin, admin, and sub-admin — each with distinct access rights, departmental scope, and responsibilities across operations, accounts, sales, and review teams.</p>
+    <p class="s2-body">Day-to-day work involved a continuous loop of registration approvals, agent assignments, credit limit management, KYC verification, performance monitoring, and follow-up. Platform walkthroughs showed how each of these tasks was currently handled — and how much of the actual work happened in Excel after downloading multiple reports that the platform couldn't consolidate.</p>
+
+    <div class="s2-pull"><p>"I wish I had one dashboard where I could see everything — active agents, top performers, failed bookings — without downloading 5 reports every morning."</p></div>
+
+    <div class="s2-img-placeholder">
+      <span class="s2-img-label">Visual 5</span>
+      <span class="s2-img-title">Admin workflow map — actual vs supported by platform</span>
+      <div class="fig"><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Get daily performance overview</div><div class="fig-grid2" style="gap:8px;margin-top:8px;"><div><span class="fig-pill b">In platform</span><p class="fig-sub" style="margin-top:5px;">Log in to admin dashboard</p></div><div><span class="fig-pill f">Outside ↗</span><p class="fig-sub" style="margin-top:5px;">Download 3 reports · merge in Excel · pivot · draw insights by hand</p></div></div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Identify low-performing agents</div><div class="fig-grid2" style="gap:8px;margin-top:8px;"><div><span class="fig-pill b">In platform</span><p class="fig-sub" style="margin-top:5px;">View agent list (name, status)</p></div><div><span class="fig-pill f">Outside ↗</span><p class="fig-sub" style="margin-top:5px;">Filter Excel for look-to-book &amp; cancellation rate · compile list manually</p></div></div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Act on low performers</div><div class="fig-grid2" style="gap:8px;margin-top:8px;"><div><span class="fig-pill b">In platform</span><p class="fig-sub" style="margin-top:5px;">Open agent profile · suspend</p></div><div><span class="fig-pill f">Outside ↗</span><p class="fig-sub" style="margin-top:5px;">Phone · email · update a separate follow-up Excel · track by hand</p></div></div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Monthly business review</div><div class="fig-grid2" style="gap:8px;margin-top:8px;"><div><span class="fig-pill b">In platform</span><p class="fig-sub" style="margin-top:5px;">Download all reports</p></div><div><span class="fig-pill f">Outside ↗</span><p class="fig-sub" style="margin-top:5px;">Merge 5–7 files · build charts manually · write summary · email</p></div></div></div>
+  <div class="fig-note f"><b>The gap is the point.</b> The platform exports raw data; all the analysis, correlation and follow-up happen outside it. Admin work isn't a simple management screen — it's a complex operational system the product has to support from day one.</div>
+</div>
+      <span class="s2-img-caption">Platform walkthroughs revealed the gap between what the platform supported and what admin work actually required — with significant effort happening outside the product entirely.</span>
+    </div>
+
+    <div class="s2-insight">
+      <p class="s2-insight-label">Key insight</p>
+      <p>The admin layer wasn't a simple management interface — it was a complex operational system. ApartWorld's infrastructure would need to support role-based access, consolidated reporting, and workflow continuity from the start, not as a later addition.</p>
+    </div>
+  </div>
+
+  <div class="s2-finding">
+    <p class="s2-finding-num">Finding 5</p>
+    <h2 class="s2-finding-title">The tension between control and speed ran through both user groups</h2>
+    <p class="s2-body">The most important cross-group pattern wasn't specific to agents or admins — it emerged from looking at both simultaneously. Admins needed control: verification gates, approval steps, visibility into agent behavior. Agents needed speed: fewer steps, faster results, less friction between search and booking.</p>
+    <p class="s2-body">These needs didn't just differ — they actively conflicted at specific moments. An approval gate that gave admins confidence was a delay that cost agents time. A credit limit check that protected the business was an interruption that broke an agent's flow with a waiting client. Neither user was wrong. The product had to navigate the tension between them deliberately, not accidentally resolve it in favor of one group.</p>
+
+    <div class="s2-img-placeholder">
+      <span class="s2-img-label">Visual 6</span>
+      <span class="s2-img-title">Control vs speed — where the two user groups conflict</span>
+      <div class="fig"><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">KYC verification</div><div class="fig-grid2" style="gap:8px;margin:8px 0;"><div><span class="fig-pill b">🏛️ Admin needs</span><p class="fig-sub" style="margin-top:5px;">Verify identity &amp; creditworthiness before access</p></div><div><span class="fig-pill g">👤 Agent needs</span><p class="fig-sub" style="margin-top:5px;">Start booking the moment they register</p></div></div><div style="font-size:12px;color:var(--ink);"><b style="color:var(--orange-deep);font-family:var(--mono);">↔ Resolution:</b> Progressive access — CnC immediately, credit after KYC</div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Credit limit check</div><div class="fig-grid2" style="gap:8px;margin:8px 0;"><div><span class="fig-pill b">🏛️ Admin needs</span><p class="fig-sub" style="margin-top:5px;">Stop agents exceeding approved credit</p></div><div><span class="fig-pill g">👤 Agent needs</span><p class="fig-sub" style="margin-top:5px;">Know available credit before searching, not at payment</p></div></div><div style="font-size:12px;color:var(--ink);"><b style="color:var(--orange-deep);font-family:var(--mono);">↔ Resolution:</b> Show live credit balance in the agent dashboard</div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Availability</div><div class="fig-grid2" style="gap:8px;margin:8px 0;"><div><span class="fig-pill b">🏛️ Admin needs</span><p class="fig-sub" style="margin-top:5px;">Accurate inventory to avoid failed bookings</p></div><div><span class="fig-pill g">👤 Agent needs</span><p class="fig-sub" style="margin-top:5px;">Trust that what they see is actually available</p></div></div><div style="font-size:12px;color:var(--ink);"><b style="color:var(--orange-deep);font-family:var(--mono);">↔ Resolution:</b> Fix the shared root cause — supplier-API sync lag</div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Approval gate</div><div class="fig-grid2" style="gap:8px;margin:8px 0;"><div><span class="fig-pill b">🏛️ Admin needs</span><p class="fig-sub" style="margin-top:5px;">Review certain bookings before they finalise</p></div><div><span class="fig-pill g">👤 Agent needs</span><p class="fig-sub" style="margin-top:5px;">Confirm routine bookings without waiting</p></div></div><div style="font-size:12px;color:var(--ink);"><b style="color:var(--orange-deep);font-family:var(--mono);">↔ Resolution:</b> Configurable thresholds — auto-approve below X, flag above</div></div><div class="fig-card soft" style="margin-bottom:8px;"><div class="fig-h">Modifications</div><div class="fig-grid2" style="gap:8px;margin:8px 0;"><div><span class="fig-pill b">🏛️ Admin needs</span><p class="fig-sub" style="margin-top:5px;">All changes logged with an approval trail</p></div><div><span class="fig-pill g">👤 Agent needs</span><p class="fig-sub" style="margin-top:5px;">Modify quickly without formal tickets</p></div></div><div style="font-size:12px;color:var(--ink);"><b style="color:var(--orange-deep);font-family:var(--mono);">↔ Resolution:</b> Structured flow with a visible SLA &amp; status tracker</div></div>
+  <div class="fig-note">Five moments where admin control and agent speed actively conflict. Neither user is wrong — so the product has to navigate the tension <b>deliberately</b>, not resolve it by accident in favour of one group.</div>
+</div>
+      <span class="s2-img-caption">Mapping admin control needs against agent speed needs revealed specific moments in the workflow where the two users' goals were in direct conflict — and where design decisions would need to make deliberate tradeoffs.</span>
+    </div>
+
+    <div class="s2-insight">
+      <p class="s2-insight-label">Key insight</p>
+      <p>Role-specific design wasn't just a UX preference — it was the only way to serve both users without systematically disadvantaging one of them.</p>
+    </div>
+  </div>
+
+  <hr class="s2-divider">
+
+  <h2 class="s2-h2">How this shaped product direction</h2>
+  <p class="s2-body">The agent findings challenged assumptions that had been shaping early design conversations — around filters, information density, and how apartment booking would work. The admin findings established what the operational infrastructure would need to support from day one.</p>
+  <p class="s2-body">Together they also surfaced a strategic decision: the trust gap in apartment decisions couldn't be solved by borrowing from the hotel model. This triggered a broader workshop with stakeholders, SMEs, and development leads — shifting the conversation from "how do we borrow hotel ratings?" to "how might ApartWorld create its own trust framework for apartments?" That led to a phased rating strategy built around guest-generated ratings first, a platform-specific AW Rating second, and transparency around how ratings are calculated third.</p>
+
+  <table class="s2-table">
+    <thead><tr><th>Initial assumption</th><th>What research showed instead</th></tr></thead>
+    <tbody>
+      <tr><td>More filters improve agent decisions</td><td>Agents relied on a small decision framework — more filters risked adding complexity without clarity</td></tr>
+      <tr><td>Search friction is a speed problem</td><td>The real issue was trust — agents struggled to believe what results showed them</td></tr>
+      <tr><td>Apartment booking resembles hotel booking</td><td>Apartments lack the cognitive shortcuts hotels provide, requiring a new trust framework entirely</td></tr>
+      <tr><td>Admin workflows are straightforward to support</td><td>Admin work was operationally complex across multiple roles, requiring consolidated reporting and role-based access from the start</td></tr>
+    </tbody>
+  </table>
+
+  <div class="s2-reflection">
+    <p class="s2-label" style="margin-bottom:8px">Reflection</p>
+    <p>Running two methods across two user groups in parallel created breadth that neither alone would have produced. The survey gave patterns at scale; the admin sessions gave depth and operational specificity. The most useful moments were where the two groups' findings converged — both were working around the product rather than inside it, both had built their own infrastructure to compensate for what the platform didn't support.</p>
+    <p>The main limitation on the agent side was the inability to follow up survey responses with interviews. Several findings — particularly around trust and the mental models agents used for apartment decisions — would have been stronger with direct conversation behind them. On the admin side, 3–5 sessions is enough to surface patterns but not enough to be confident about edge cases across different organizational structures.</p>
+    <p>I also used AI-assisted tools selectively to generate edge cases and challenge assumptions — treating outputs as prompts for better questions rather than as evidence. Every finding that influenced a product decision came from the research itself.</p>
+  </div>
+
+  <div class="s2-takeaway">
+    <p>Understanding users meant understanding two very different kinds of pressure — agents optimizing for speed under client demand, admins managing operational complexity across a system they couldn't fully see. The product had to serve both, without accidentally resolving the tension between them in favor of one.</p>
+  </div>
+</div>
+
+</main>
+<div class="study-pager"><a class="prev" href="study1.html"><div class="dir">&larr; Previous study</div><div class="ttl">01 &middot; Understanding the ecosystem</div></a><a class="next" href="study3.html"><div class="dir">Next study &rarr;</div><div class="ttl">03 &middot; From research to MVP</div></a></div>
+<div style="height:clamp(48px,7vw,80px)"></div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">ApartWorld</span>
+        <h2 style="margin-top:14px;">Want the full walk-through?</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="apartworld.html">Project overview &rarr;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="work.html">All work &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="apartworld.html">&larr; Back to ApartWorld</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

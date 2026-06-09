@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('aw_unlocked')==='1')document.documentElement.classList.add('aw-ok');}catch(e){}</script>
+<title>ApartWorld &middot; Study 3 — From research to MVP &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="ApartWorld Study 3">
+<div class="gate" role="dialog" aria-label="Password protected">
+  <div class="gate-card">
+    <div class="gate-mark"><img src="assets/img/avatar.png" alt=""></div>
+    <span class="lock">&#128274; Protected case study</span>
+    <h1 style="margin-top:14px;">ApartWorld<span style="color:var(--orange);">.</span></h1>
+    <p>This is current, confidential client work. Enter the password to view the full project &amp; its four studies.</p>
+    <form>
+      <input type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <button class="btn btn-primary" type="submit">Unlock <span class="arr">&rarr;</span></button>
+    </form>
+    <div class="err-msg"></div>
+    <a class="back" href="work.html">&larr; Back to all work</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="subnav studies"><div class="subnav-inner"><a href="apartworld.html" class="sub-label" style="text-decoration:none;">&larr; ApartWorld</a><a href="study1.html">01 &middot; Understanding the ecosystem</a><a href="study2.html">02 &middot; Understanding users at scale</a><a href="study3.html" class="on">03 &middot; From research to MVP</a><a href="study4.html">04 &middot; Evaluating the flows</a></div></div>
+<main class="reader section" style="padding-top:clamp(20px,3vw,32px);">
+
+<style>
+  .s3{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .s3-back{font-size:13px;color:var(--color-text-tertiary);margin-bottom:2rem;display:flex;align-items:center;gap:6px}
+  .s3-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .s3-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .s3-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .s3-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .s3-meta-item{display:flex;flex-direction:column;gap:3px}
+  .s3-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .s3-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .s3-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .s3-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .s3-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .s3-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .s3-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .s3-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .s3-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .s3-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .s3-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .s3-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .s3-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .s3-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .s3-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:200px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .s3-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .s3-finding{margin:2rem 0}
+  .s3-finding-num{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);margin-bottom:4px}
+  .s3-finding-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 .75rem;line-height:1.3}
+  .s3-rq{margin:0;padding:0;list-style:none}
+  .s3-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .s3-rq li:last-child{border-bottom:none}
+  .s3-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .s3-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .s3-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .s3-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:13px}
+  .s3-table th{text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);padding:.5rem .75rem;border-bottom:.5px solid var(--color-border-secondary)}
+  .s3-table td{padding:.65rem .75rem;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.5}
+  .s3-table td:first-child{color:var(--color-text-primary);font-weight:500}
+  .s3-table tr:last-child td{border-bottom:none}
+  .s3-scope{margin:1.5rem 0}
+  .s3-scope-row{display:flex;align-items:flex-start;gap:12px;padding:.75rem 0;border-bottom:.5px solid var(--color-border-tertiary)}
+  .s3-scope-row:last-child{border-bottom:none}
+  .s3-scope-icon{font-size:14px;min-width:20px;margin-top:1px}
+  .s3-scope-content strong{font-size:14px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:2px}
+  .s3-scope-content p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .s3-pill{display:inline-block;font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px;margin:3px 3px 3px 0}
+  .s3-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .s3-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .s3-reflection p:last-child{margin-bottom:0}
+  .s3-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .s3-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+</style>
+<div class="s3">
+  <a class="s3-back" href="apartworld.html">← ApartWorld</a>
+  <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);margin:0 0 1.75rem;"><img src="assets/img/aw/s3.png" alt="Study 3 cover" style="display:block;width:100%;height:auto;"></div>
+  <p class="s3-label">Study 3 of 4</p>
+  <h1 class="s3-h1">From research findings to MVP definition</h1>
+  <p class="s3-sub">Translating accumulated insights into a prioritized product scope — and learning that defining what not to build is harder than defining what to build</p>
+  <div class="s3-meta">
+    <div class="s3-meta-item"><span>Methods</span><span>Opportunity mapping · Workshops · Prioritization</span></div>
+    <div class="s3-meta-item"><span>Inputs</span><span>Ecosystem research · Agent behavior findings · SME discussions · Business goals</span></div>
+    <div class="s3-meta-item"><span>Tools</span><span>Miro · FigJam · Excel · Jira</span></div>
+  </div>
+  <hr class="s3-divider">
+  <h2 class="s3-h2">The problem that emerged</h2>
+  <p class="s3-body">By this point in the project, research had done its job — surfacing patterns, challenging assumptions, and generating a genuine understanding of how agents and admins worked. The challenge was no longer discovery. It was decisions.</p>
+  <p class="s3-body">Across the ecosystem research, behavioral study, workshops, SME discussions, and operational conversations, opportunities had accumulated across nearly every part of the product:</p>
+  <div style="margin:1rem 0 1.5rem">
+    <span class="s3-pill">Trust mechanisms</span>
+    <span class="s3-pill">Compare & quotation workflows</span>
+    <span class="s3-pill">Recommendation systems</span>
+    <span class="s3-pill">Dashboards</span>
+    <span class="s3-pill">Personalization</span>
+    <span class="s3-pill">AI-assisted search</span>
+    <span class="s3-pill">Communication layers</span>
+    <span class="s3-pill">Loyalty ecosystems</span>
+    <span class="s3-pill">Operational tools</span>
+    <span class="s3-pill">Search enhancements</span>
+    <span class="s3-pill">Workflow continuity</span>
+  </div>
+  <p class="s3-body">Each idea had emerged from real evidence. Each seemed valuable in isolation. And that was precisely the problem.</p>
+  <div class="s3-pull"><p>"The challenge was not discovering ideas. It was deciding which ideas actually belonged in the first version of the product — and which ones would make it harder to ship anything useful."</p></div>
+  <hr class="s3-divider">
+  <h2 class="s3-h2">Research questions</h2>
+  <ul class="s3-rq">
+    <li><span class="s3-rq-num">1</span><span>Which opportunities appear repeatedly across multiple research inputs?</span></li>
+    <li><span class="s3-rq-num">2</span><span>Which create meaningful user value versus which just sound compelling?</span></li>
+    <li><span class="s3-rq-num">3</span><span>What belongs in MVP versus later phases?</span></li>
+    <li><span class="s3-rq-num">4</span><span>Which ideas increase complexity without proportionate value?</span></li>
+    <li><span class="s3-rq-num">5</span><span>How do research findings translate into decisions teams can actually act on?</span></li>
+  </ul>
+  <hr class="s3-divider">
+  <h2 class="s3-h2">Approach</h2>
+  <p class="s3-body">This study wasn't a single research activity — it was a continuous synthesis exercise running alongside ongoing design and development work. Rather than one prioritization session, it involved repeatedly returning to accumulated evidence as new questions emerged in workshops and cross-functional discussions.</p>
+  <div class="s3-methods">
+    <span class="s3-method-tag">Opportunity mapping</span>
+    <span class="s3-method-tag">Cross-functional workshops</span>
+    <span class="s3-method-tag">SME discussions</span>
+    <span class="s3-method-tag">Feature prioritization</span>
+    <span class="s3-method-tag">User story refinement</span>
+    <span class="s3-method-tag">Impact vs complexity mapping</span>
+  </div>
+  <div class="s3-img-placeholder">
+    <span class="s3-img-label">Visual 1</span>
+    <span class="s3-img-title">Opportunity ecosystem map</span>
+    <div class="fig">
+  <div class="fig-grid4"><div class="fig-card soft"><div style="font-size:17px;">🗺️</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Ecosystem research</div><p class="fig-sub" style="font-size:11.5px;">47-platform landscape · segment gaps</p></div><div class="fig-card soft"><div style="font-size:17px;">📊</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Agent behaviour</div><p class="fig-sub" style="font-size:11.5px;">122-agent survey · trust deficit</p></div><div class="fig-card soft"><div style="font-size:17px;">💬</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">SME discussions</div><p class="fig-sub" style="font-size:11.5px;">Agent-ops &amp; admin sessions</p></div><div class="fig-card soft"><div style="font-size:17px;">⚙️</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Operational knowledge</div><p class="fig-sub" style="font-size:11.5px;">Admin journeys · KYC→credit flow</p></div><div class="fig-card soft"><div style="font-size:17px;">🎯</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Business goals</div><p class="fig-sub" style="font-size:11.5px;">Apartment-first · B2B channel</p></div><div class="fig-card soft"><div style="font-size:17px;">🔧</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Technical feasibility</div><p class="fig-sub" style="font-size:11.5px;">API scope · MVP1→3 roadmap</p></div><div class="fig-card soft"><div style="font-size:17px;">👤</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Personas &amp; journeys</div><p class="fig-sub" style="font-size:11.5px;">Pradeep, Harman, Ankita…</p></div><div class="fig-card soft"><div style="font-size:17px;">✏️</div><div class="fig-h" style="margin:5px 0 3px;font-size:13px;">Design WiP</div><p class="fig-sub" style="font-size:11.5px;">Sitemaps · quotation wireframes</p></div></div>
+  <div class="fig-card" style="margin-top:12px;text-align:center;background:var(--ink);border-color:var(--ink);">
+    <div class="fig-k" style="color:oklch(0.8 0.02 80);">8 streams converge →</div>
+    <div style="font-family:var(--mono);font-weight:700;font-size:20px;color:var(--paper);margin-top:4px;">ApartWorld product direction</div>
+  </div>
+  <div class="fig-note">Direction didn't come from one method or stakeholder — it was the <b>convergence of all eight streams</b> that produced decisions robust enough to survive MVP tradeoffs.</div>
+</div>
+    <span class="s3-img-caption">Product direction emerged by continuously connecting multiple streams of input — not from any single research activity in isolation.</span>
+  </div>
+  <hr class="s3-divider">
+  <div class="s3-finding">
+    <p class="s3-finding-num">Finding 1</p>
+    <h2 class="s3-finding-title">More opportunities didn't automatically create more value</h2>
+    <p class="s3-body">As opportunities accumulated, the instinct was to retain as many as possible — each one had evidence behind it, each had been raised by someone with legitimate knowledge of the problem. Removing anything felt like losing something real.</p>
+    <p class="s3-body">But as workshop discussions evolved, a different pattern emerged. Ideas that looked valuable individually were creating collective problems: increasing implementation dependencies, expanding scope unpredictably, and making it harder for teams to align on what to actually build first. Loyalty ecosystems, AI-assisted search, and broader personalization concepts each sounded compelling on their own. Together, they were pulling the product in too many directions simultaneously.</p>
+    <div class="s3-img-placeholder">
+      <span class="s3-img-label">Visual 2</span>
+      <span class="s3-img-title">Opportunity clustering board</span>
+      <div class="fig"><div class="fig-card" style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="fig-h" style="margin:0;">🛡️ Trust</div><span class="fig-pill g">PRIORITY</span></div><p class="fig-sub" style="margin-top:7px;">Real-time inventory · AW Rating · consistent cancellation · payment transparency · verified room details</p></div><div class="fig-card" style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="fig-h" style="margin:0;">⚖️ Decision support</div><span class="fig-pill g">PRIORITY</span></div><p class="fig-sub" style="margin-top:7px;">Property highlights · 5-way compare · AW Recommended sort · filter hierarchy · client-facing quote preview</p></div><div class="fig-card" style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="fig-h" style="margin:0;">🔄 Workflow continuity</div><span class="fig-pill g">PRIORITY</span></div><p class="fig-sub" style="margin-top:7px;">Quotation builder · quote dashboard · client profiles · multi-room booking · booking-status visibility</p></div><div class="fig-card soft" style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="fig-h" style="margin:0;">🏛️ Operations</div><span class="fig-pill ">LATER</span></div><p class="fig-sub" style="margin-top:7px;">Unified admin dashboard · follow-up tooling · credit alerts · configurable approval tiers</p></div><div class="fig-card soft" style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="fig-h" style="margin:0;">🔭 Future</div><span class="fig-pill ">LATER</span></div><p class="fig-sub" style="margin-top:7px;">AI / NL search · loyalty ecosystem · review engine · demand/event calendar · recommendation engine</p></div>
+  <div class="fig-note"><b>The problem wasn't a shortage of good ideas</b> — it was that good ideas collectively create complexity. Clustering surfaced three priority themes (trust, decision support, workflow continuity) and a clear set to defer.</div>
+</div>
+      <span class="s3-img-caption">Clustering surfaced three themes worth prioritizing — trust, decision support, and workflow continuity — and a clearer set of ideas to defer.</span>
+    </div>
+    <div class="s3-insight">
+      <p class="s3-insight-label">Key insight</p>
+      <p>The problem wasn't a shortage of good ideas. It was that good ideas collectively create complexity — and complexity is what kills first versions of products.</p>
+    </div>
+  </div>
+  <div class="s3-finding">
+    <p class="s3-finding-num">Finding 2</p>
+    <h2 class="s3-finding-title">Users needed fewer, stronger decision signals — not more information</h2>
+    <p class="s3-body">The behavioral research had already established that agents relied on a small decision framework — location, price, reviews — and struggled with trust rather than a lack of options. That finding kept resurfacing in prioritization discussions.</p>
+    <p class="s3-body">Ideas like more filters, richer property details, and expanded recommendation labels all seemed like reasonable responses to agent frustration. But when mapped against the actual pattern — agents optimizing for speed and certainty, not exploration — a different picture emerged. Adding more information would increase cognitive load at exactly the moment agents needed to move quickly.</p>
+    <div class="s3-img-placeholder">
+      <span class="s3-img-label">Visual 3</span>
+      <span class="s3-img-title">Decision support evolution</span>
+      <div class="fig">
+  <div class="fig-grid2">
+    <div class="fig-card" style="border-color:var(--fig-red);">
+      <div class="fig-pill f" style="margin-bottom:8px;">Path A · more information</div>
+      <div class="fig-step"><div class="fig-dot o">1</div><div><b>More filters added</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot o">2</div><div><b>More info shown — no hierarchy</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot f">↑</div><div><b>Higher complexity</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot f">↓</div><div><b>Slower decisions → lower trust ✕</b></div></div>
+    </div>
+    <div class="fig-card" style="border-color:var(--fig-good);">
+      <div class="fig-pill g" style="margin-bottom:8px;">Path B · better signals</div>
+      <div class="fig-step"><div class="fig-dot g">1</div><div><b>Highlights + AW Rating</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot g">2</div><div><b>Curated AW Recommended sort</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot g">↑</div><div><b>Higher confidence</b></div></div>
+      <div class="fig-conn"></div>
+      <div class="fig-step"><div class="fig-dot g">✓</div><div><b>Faster decisions → higher trust ✓</b></div></div>
+    </div>
+  </div>
+  <div class="fig-note"><b>The insight:</b> agents asked for more filters; research showed they use only three. The right answer wasn't more controls — it was making the three that matter more prominent and trustworthy.</div>
+</div>
+      <span class="s3-img-caption">More information → higher complexity → slower decisions. Property highlights, ratings, and recommendations → higher confidence → faster decisions.</span>
+    </div>
+    <div class="s3-insight">
+      <p class="s3-insight-label">Key insight</p>
+      <p>The question shifted from "how do we provide more information?" to "how do we help users decide faster?" That reframe changed which features made the cut.</p>
+    </div>
+  </div>
+  <div class="s3-finding">
+    <p class="s3-finding-num">Finding 3</p>
+    <h2 class="s3-finding-title">External workflows needed integration, not replacement</h2>
+    <p class="s3-body">Research had consistently shown that agents had built their own infrastructure around the platform — WhatsApp for sharing options, email for quotes, spreadsheets for tracking. The initial instinct in some discussions was to build features that would replace these behaviors entirely.</p>
+    <p class="s3-body">But looking at what those tools were actually doing — enabling sharing, maintaining continuity, supporting client communication — it became clear that replacing them wasn't the right goal. The goal was reducing the fragmentation that made them necessary in the first place. A compare and quotation workflow that let agents share options directly from the platform addressed the same need, without requiring agents to abandon communication patterns that were already working.</p>
+    <div class="s3-img-placeholder">
+      <span class="s3-img-label">Visual 4</span>
+      <span class="s3-img-title">Workflow evolution — current vs future state</span>
+      <div class="fig">
+  <div class="fig-grid2">
+    <div class="fig-card"><div class="fig-pill f" style="margin-bottom:10px;">Current · 5 of 8 steps outside</div><div class="fig-flow-step"><div class="fig-flow-ic ">•</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Search · platform</div></div><div class="fig-flow-step"><div class="fig-flow-ic ">•</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Compare · basic (4 max)</div></div><div class="fig-flow-step"><div class="fig-flow-ic out">↗</div><div class="fig-sub" style="color:var(--fig-amber);padding-top:5px;">Export / screenshot</div></div><div class="fig-flow-step"><div class="fig-flow-ic out">↗</div><div class="fig-sub" style="color:var(--fig-amber);padding-top:5px;">Build quote in Excel/Word</div></div><div class="fig-flow-step"><div class="fig-flow-ic out">↗</div><div class="fig-sub" style="color:var(--fig-amber);padding-top:5px;">Send via WhatsApp</div></div><div class="fig-flow-step"><div class="fig-flow-ic out">↗</div><div class="fig-sub" style="color:var(--fig-amber);padding-top:5px;">Follow up by phone</div></div><div class="fig-flow-step"><div class="fig-flow-ic out">↗</div><div class="fig-sub" style="color:var(--fig-amber);padding-top:5px;">Customer confirms</div></div><div class="fig-flow-step"><div class="fig-flow-ic ">•</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Re-enter to book · platform</div></div></div>
+    <div class="fig-card"><div class="fig-pill g" style="margin-bottom:10px;">Future · 8 of 8 inside</div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Search · AW Recommended</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Compare up to 5 · detailed</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Add to Quotation Builder</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Markup + notes + star picks</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Preview (client-facing)</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Share · PDF / link / WhatsApp</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Track quote status</div></div><div class="fig-flow-step"><div class="fig-flow-ic in">✓</div><div class="fig-sub" style="color:var(--ink);padding-top:5px;">Convert quote → booking</div></div></div>
+  </div>
+  <div class="fig-note">Same need — gather requirements, evaluate, share a quote, get confirmation, book. The future state doesn't add steps; it <b>moves the existing ones inside the platform</b>, removing the fragmentation that creates errors, delays and lost context.</div>
+</div>
+      <span class="s3-img-caption">Current: Search → Compare → Export → WhatsApp/Email → Customer. Future: Search → Compare → Quotation → Share → Customer. Same need, less fragmentation.</span>
+    </div>
+    <div class="s3-insight">
+      <p class="s3-insight-label">Key insight</p>
+      <p>Users had already solved their workflow problems — imperfectly, but functionally. The product opportunity was reducing the friction of their existing solution, not invalidating it.</p>
+    </div>
+  </div>
+  <hr class="s3-divider">
+  <h2 class="s3-h2">What the prioritization produced</h2>
+  <div class="s3-img-placeholder">
+    <span class="s3-img-label">Visual 5</span>
+    <span class="s3-img-title">Impact vs complexity prioritization matrix</span>
+    <div class="fig">
+  <div class="fig-quad">
+    <div class="q mvp"><div class="fig-pill b" style="margin-bottom:6px;">MVP · high impact, low complexity</div>
+      <div class="fig-qitem">Compare workflow (up to 5)</div><div class="fig-qitem">Quotation builder</div><div class="fig-qitem">Property highlights &amp; AW Rating badges</div><div class="fig-qitem">Filter hierarchy</div><div class="fig-qitem">Payment status transparency</div><div class="fig-qitem">Real-time inventory sync</div></div>
+    <div class="q later"><div class="fig-pill" style="margin-bottom:6px;color:var(--fig-purple);">Later phases · high impact, high complexity</div>
+      <div class="fig-qitem">AW Rating system (full)</div><div class="fig-qitem">Recommendation engine</div><div class="fig-qitem">Multi-city itinerary booking</div><div class="fig-qitem">Unified admin BI dashboard</div><div class="fig-qitem">Review collection engine</div></div>
+    <div class="q enh"><div class="fig-pill" style="margin-bottom:6px;">Enhancement · lower impact, low complexity</div>
+      <div class="fig-qitem">Session timeout extension</div><div class="fig-qitem">Quote expiry notifications</div><div class="fig-qitem">Agent tier badge display</div></div>
+    <div class="q depri"><div class="fig-pill a" style="margin-bottom:6px;">Deprioritised · lower impact, high complexity</div>
+      <div class="fig-qitem">AI / NL search</div><div class="fig-qitem">Loyalty ecosystem</div><div class="fig-qitem">Event calendar (AI-updated)</div></div>
+  </div>
+  <div class="fig-note"><b>What the prioritisation produced.</b> Mapping every idea against user value, business value and complexity surfaced a clear MVP — and, just as importantly, what to defer. Removing AI search and loyalty from scope is what made the rest coherent.</div>
+</div>
+    <span class="s3-img-caption">Mapping ideas against user value, business value, and implementation complexity surfaced a clear MVP scope — and an equally clear set of things to defer.</span>
+  </div>
+  <div class="s3-scope">
+    <div class="s3-scope-row">
+      <span class="s3-scope-icon">✓</span>
+      <div class="s3-scope-content"><strong>Moved into MVP scope</strong><p>Compare workflow · Quotation workflow · Property highlights · Workflow continuity mechanisms</p></div>
+    </div>
+    <div class="s3-scope-row">
+      <span class="s3-scope-icon">○</span>
+      <div class="s3-scope-content"><strong>Moved to phased implementation</strong><p>AW ratings · Recommendation systems</p></div>
+    </div>
+    <div class="s3-scope-row">
+      <span class="s3-scope-icon" style="color:var(--color-text-tertiary)">—</span>
+      <div class="s3-scope-content"><strong>Moved out of MVP scope</strong><p>AI-assisted search · Loyalty ecosystem · Broader personalization concepts</p></div>
+    </div>
+  </div>
+  <hr class="s3-divider">
+  <h2 class="s3-h2">Assumptions the work challenged</h2>
+  <table class="s3-table">
+    <thead><tr><th>Initial assumption</th><th>What the work showed instead</th></tr></thead>
+    <tbody>
+      <tr><td>More features create better products</td><td>Better prioritization creates better products — scope clarity matters more than feature richness</td></tr>
+      <tr><td>Users need more information</td><td>Users need stronger decision signals, not larger information sets</td></tr>
+      <tr><td>External tools indicate missing functionality</td><td>External tools indicate unmet workflow needs — the goal is reducing fragmentation, not feature replacement</td></tr>
+      <tr><td>Every well-evidenced idea should become a feature</td><td>Value must be weighed against complexity — good ideas can still be wrong for a first version</td></tr>
+    </tbody>
+  </table>
+  <div class="s3-reflection">
+    <p class="s3-label" style="margin-bottom:8px">Reflection</p>
+    <p>I came into this expecting prioritization to feel like selection — picking the best ideas from a list. It turned out to be something different: a process of understanding tradeoffs well enough to make decisions that multiple teams could commit to.</p>
+    <p>The most difficult discussions weren't about whether an idea was good. They were about whether a good idea belonged in this version — and those discussions required the research to be specific and translatable, not just directionally correct.</p>
+    <p>What surprised me most was how much of the value came from defining what not to build. Removing AI-assisted search and loyalty ecosystems from MVP scope wasn't a loss — it was what made the rest of the scope coherent.</p>
+  </div>
+  <div class="s3-takeaway">
+    <p>Research gradually stopped being about discovering opportunities and became a process of helping teams decide. That shift — from surfacing possibilities to reducing ambiguity — is where I found the work most meaningful.</p>
+  </div>
+</div>
+
+</main>
+<div class="study-pager"><a class="prev" href="study2.html"><div class="dir">&larr; Previous study</div><div class="ttl">02 &middot; Understanding users at scale</div></a><a class="next" href="study4.html"><div class="dir">Next study &rarr;</div><div class="ttl">04 &middot; Evaluating the flows</div></a></div>
+<div style="height:clamp(48px,7vw,80px)"></div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">ApartWorld</span>
+        <h2 style="margin-top:14px;">Want the full walk-through?</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="apartworld.html">Project overview &rarr;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="work.html">All work &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="apartworld.html">&larr; Back to ApartWorld</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

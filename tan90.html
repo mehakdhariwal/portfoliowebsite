@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Student Performance Dashboard — Tan90 &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="Tan90 Dashboard case study">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance &#8599;</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<section class="section" style="padding-bottom:0;">
+  <div class="wrap" style="max-width:760px;">
+    <a class="textlink" href="work.html" style="border:0; font-size:13px; color:var(--ink-soft); padding:0;">&larr; All work</a>
+  </div>
+</section>
+<main class="reader section" style="padding-top:clamp(16px,2.5vw,28px);">
+
+<style>
+  .cs{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .cs-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .cs-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .cs-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .cs-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .cs-meta-item{display:flex;flex-direction:column;gap:3px}
+  .cs-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .cs-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .cs-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .cs-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .cs-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .cs-h3{font-size:14px;font-weight:500;color:var(--color-text-primary);margin:1.5rem 0 .5rem}
+  .cs-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .cs-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .cs-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .cs-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .cs-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .cs-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .cs-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .cs-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .cs-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .cs-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:180px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .cs-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .cs-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.5rem 0}
+  .cs-stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .cs-stat-num{font-size:22px;font-weight:500;color:var(--color-text-primary);margin:0 0 3px}
+  .cs-stat-label{font-size:12px;color:var(--color-text-secondary);line-height:1.4;margin:0}
+  .cs-phase{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin:1.5rem 0;overflow:hidden}
+  .cs-phase-header{background:var(--color-background-secondary);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .cs-phase-header-left{}
+  .cs-phase-num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:4px}
+  .cs-phase-title{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:0}
+  .cs-phase-desc{font-size:13px;color:var(--color-text-secondary);margin:3px 0 0}
+  .cs-phase-body{padding:1.25rem}
+  .cs-phase-body p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 1rem}
+  .cs-phase-body p:last-child{margin-bottom:0}
+  .cs-outcome-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1px;background:var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;margin:1rem 0}
+  .cs-outcome-header{background:var(--color-background-secondary);padding:.5rem .75rem;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary)}
+  .cs-outcome-cell{background:var(--color-background-primary);padding:.6rem .75rem;font-size:13px;color:var(--color-text-secondary);line-height:1.4}
+  .cs-outcome-cell.metric{color:var(--color-text-primary);font-weight:500}
+  .cs-outcome-cell.after{color:#22c55e;font-weight:500}
+  .cs-what-worked{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0}
+  .cs-ww-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .cs-ww-card strong{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);display:block;margin-bottom:6px}
+  .cs-ww-card ul{margin:0;padding:0 0 0 1rem}
+  .cs-ww-card ul li{font-size:13px;color:var(--color-text-secondary);line-height:1.65;margin-bottom:3px}
+  .cs-quote{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1.1rem;margin:.75rem 0;font-size:14px;color:var(--color-text-secondary);font-style:italic;line-height:1.65}
+  .cs-quote span{display:block;font-size:12px;color:var(--color-text-tertiary);font-style:normal;margin-top:5px}
+  .cs-stakeholder-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:13px}
+  .cs-stakeholder-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);padding:.5rem .75rem;border-bottom:.5px solid var(--color-border-secondary)}
+  .cs-stakeholder-table td{padding:.6rem .75rem;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.5}
+  .cs-stakeholder-table td:first-child{color:var(--color-text-primary);font-weight:500}
+  .cs-stakeholder-table tr:last-child td{border-bottom:none}
+  .cs-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .cs-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .cs-rq{margin:0;padding:0;list-style:none}
+  .cs-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .cs-rq li:last-child{border-bottom:none}
+  .cs-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .cs-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .cs-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .cs-reflection p:last-child{margin-bottom:0}
+  .cs-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .cs-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+  .cs-outcome-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:1.5rem 0}
+  .cs-os{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem;text-align:center}
+  .cs-os-num{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 3px}
+  .cs-os-label{font-size:11px;color:var(--color-text-secondary);line-height:1.4;margin:0}
+</style>
+
+<div class="cs">
+  <p class="cs-label">UX Design · EdTech · 2023–2024</p>
+  <h1 class="cs-h1">Student Performance Dashboard</h1>
+  <p class="cs-sub">Redesigning Tan90's internal reporting tool — from a manually operated dashboard to an automated, role-specific platform serving educators, operations teams, and funding partners</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-item"><span>Company</span><span>Tan90</span></div>
+    <div class="cs-meta-item"><span>Role</span><span>Design Lead</span></div>
+    <div class="cs-meta-item"><span>Scope</span><span>Research · Strategy · Design · Testing</span></div>
+    <div class="cs-meta-item"><span>Timeline</span><span>3 phases across 2023–2024</span></div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">The problem</h2>
+  <p class="cs-body">Tan90 builds educational products for schools — STEAM labs, clubs, and learning kits — designed to bring hands-on learning into classrooms. Alongside the programs, they ran a student performance dashboard intended to give educators, operations staff, and funding partners visibility into outcomes.</p>
+  <p class="cs-body">In practice, the dashboard wasn't doing that job. The operations team spent 2–3 hours every month manually downloading charts and statistics, pasting them into pre-designed templates, and compiling reports for funders. The dashboard itself was underused — too complex, too slow, and not organized around how people actually worked.</p>
+
+  <div class="cs-pull"><p>"The manual process is tedious and slow. By the time we share reports, the data often feels outdated." — Operations Team</p></div>
+
+  <div class="cs-stat-row">
+    <div class="cs-stat"><p class="cs-stat-num">2–3 hrs</p><p class="cs-stat-label">Spent per report cycle, manually</p></div>
+    <div class="cs-stat"><p class="cs-stat-num">2.8/5</p><p class="cs-stat-label">User satisfaction before redesign</p></div>
+    <div class="cs-stat"><p class="cs-stat-num">Low</p><p class="cs-stat-label">Adoption across stakeholder groups</p></div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <figure style="margin:1.5rem 0;"><img class="ui-shot" src="assets/img/tan90-products.webp" alt="Tan90 educational products"><figcaption class="ui-cap">What Tan90 builds — Natkhat STEAM Lab, the Math Magic Box learning kit, and the Natkhat STEAM Club.</figcaption></figure><h2 class="cs-h2">My role</h2>
+  <p class="cs-body">I led the project from research through to delivery across all three phases — responsible for the audit, stakeholder engagement, design, prototyping, usability testing, and handoff. I worked closely with the engineering team and a solutioning mentor to keep decisions grounded in what was technically feasible at each stage.</p>
+  <div class="cs-methods">
+    <span class="cs-method-tag">Heuristic audit</span>
+    <span class="cs-method-tag">Stakeholder interviews</span>
+    <span class="cs-method-tag">Workshop facilitation</span>
+    <span class="cs-method-tag">Wireframing</span>
+    <span class="cs-method-tag">Prototyping</span>
+    <span class="cs-method-tag">Usability testing</span>
+    <span class="cs-method-tag">Phased delivery</span>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Research and discovery</h2>
+
+  <h3 class="cs-h3">Heuristic audit</h3>
+  <p class="cs-body">I started by auditing the existing dashboard against Nielsen's heuristics — navigating it as a user, identifying where it broke down, and documenting the gap between what the product offered and what users actually needed to do their jobs.</p>
+  <p class="cs-body">Three problems stood out repeatedly: information overload that buried the metrics users cared about, navigation that made retrieving specific data slow and frustrating, and a reporting workflow that required entirely manual effort with no automation at any step.</p>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Image</span>
+    <span class="cs-img-title">Dashboard audit — before state</span>
+    <img class="ui-shot" src="assets/img/tan90-before.webp" alt="Before-state experience of each stakeholder group">
+    <span class="cs-img-caption">The existing dashboard: dense, manually operated, and organized around data availability rather than user workflows.</span>
+  </div>
+
+  <h3 class="cs-h3">Stakeholder interviews and workshops</h3>
+  <p class="cs-body">I ran interviews and collaborative workshops with the four groups who had most at stake in how the dashboard worked. Each had a different relationship with the data — and different definitions of what "useful" meant.</p>
+
+  <table class="cs-stakeholder-table">
+    <thead><tr><th>Stakeholder</th><th>What they needed</th></tr></thead>
+    <tbody>
+      <tr><td>Operations team</td><td>Faster, error-free workflows for generating and sharing reports</td></tr>
+      <tr><td>Program managers</td><td>Real-time visibility into program-level performance to evaluate and adjust</td></tr>
+      <tr><td>Funding partners & CEO</td><td>High-level impact metrics that clearly demonstrated outcomes</td></tr>
+      <tr><td>Engineering & solutions lead</td><td>Technically feasible increments that could integrate with existing infrastructure</td></tr>
+    </tbody>
+  </table>
+
+  <figure style="margin:1.5rem 0;"><img class="ui-shot" src="assets/img/tan90-stakeholders.webp" alt="The four stakeholder groups"><figcaption class="ui-cap">The stakeholder groups I engaged — each with a different relationship to the data and a different definition of “useful”.</figcaption></figure><p class="cs-body">The clearest finding from stakeholder engagement: the dashboard was being used for one primary job — generating reports for funders — and that job was entirely manual. Everything else was secondary until that was fixed.</p>
+
+  <div class="cs-insight">
+    <p class="cs-insight-label">Core problem framing</p>
+    <p>How might we redesign the dashboard to eliminate manual reporting effort, improve data reliability, and make the platform relevant enough for broader stakeholder adoption?</p>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Design approach</h2>
+  <p class="cs-body">Rather than a single redesign launch, I structured the work in three phases — each one building on the last, each one testable before committing to the next. The phasing wasn't just a delivery strategy. It was a trust strategy: giving users something immediately useful, demonstrating it worked, then expanding from there.</p>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Image</span>
+    <span class="cs-img-title">Design system — components, typography, color, grid</span>
+    <img class="ui-shot" src="assets/img/tan90-colors.webp" alt="Color system" style="margin-bottom:14px;"><img class="ui-shot" src="assets/img/tan90-type.webp" alt="Typography system" style="margin-bottom:14px;"><img class="ui-shot" src="assets/img/tan90-components.webp" alt="Component library">
+    <span class="cs-img-caption">A consistent visual system established across all three phases to ensure coherence as the product expanded.</span>
+  </div>
+
+  <hr class="cs-divider">
+
+  <div class="cs-phase">
+    <div class="cs-phase-header">
+      <div class="cs-phase-header-left">
+        <p class="cs-phase-num">Phase 1</p>
+        <p class="cs-phase-title">Simplify the interface for the operations team</p>
+        <p class="cs-phase-desc">Dynamic filtering · Key impact metrics · Streamlined navigation</p>
+      </div>
+    </div>
+    <div class="cs-phase-body">
+      <p>The operations team was the primary user — and the most burdened one. Phase 1 focused entirely on reducing the effort required to find and use the data they needed every day.</p>
+      <p>I introduced dynamic, filter-based report generation so users could adjust views without leaving the dashboard. Key impact metrics — assessment performance, baseline vs module vs endline comparisons — were visualized through histograms, radar charts, and line charts rather than raw tables. Navigation was restructured to surface the most-used views without extra steps.</p>
+
+      <div class="cs-img-placeholder">
+        <span class="cs-img-label">Image</span>
+        <span class="cs-img-title">Phase 1 — redesigned dashboard interface</span>
+        <img class="ui-shot" src="assets/img/tan90-dashboard.webp" alt="Redesigned dashboard overview with dynamic filters and key metrics">
+        <span class="cs-img-caption">Simplified layout with dynamic filtering and visualized performance metrics — designed to reduce cognitive load and surface what the operations team needed without extra navigation.</span>
+      </div>
+
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:1.25rem 0 .5rem">Outcomes after Phase 1</p>
+      <div class="cs-outcome-row">
+        <div class="cs-outcome-header">Metric</div><div class="cs-outcome-header">Before</div><div class="cs-outcome-header">After</div>
+        <div class="cs-outcome-cell metric">Report generation time</div><div class="cs-outcome-cell">2–3 hours</div><div class="cs-outcome-cell after">30 minutes</div>
+        <div class="cs-outcome-cell metric">Error rate</div><div class="cs-outcome-cell">High — frequent issues</div><div class="cs-outcome-cell after">↓ 60%</div>
+        <div class="cs-outcome-cell metric">User satisfaction</div><div class="cs-outcome-cell">2.8 / 5</div><div class="cs-outcome-cell after">4.5 / 5</div>
+      </div>
+
+      <div class="cs-quote">"Generating reports is now straightforward, and I don't need to double-check everything. It's saved me hours of work."<span>— Operations Team Member</span></div>
+
+      <div class="cs-what-worked">
+        <div class="cs-ww-card">
+          <strong>What worked</strong>
+          <ul>
+            <li>Time savings were immediate and measurable</li>
+            <li>Dynamic filtering removed the need for manual compilation</li>
+          </ul>
+        </div>
+        <div class="cs-ww-card">
+          <strong>What needed iteration</strong>
+          <ul>
+            <li>Filter options were still limited for specific data views</li>
+            <li>Users requested more visual variety in funder-facing exports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-phase">
+    <div class="cs-phase-header">
+      <div class="cs-phase-header-left">
+        <p class="cs-phase-num">Phase 2</p>
+        <p class="cs-phase-title">Automate report formatting and export</p>
+        <p class="cs-phase-desc">Pre-designed templates · PDF and PNG export · Automated formatting</p>
+      </div>
+    </div>
+    <div class="cs-phase-body">
+      <p>Even with Phase 1's improvements, producing funder-ready reports still required manual work outside the dashboard. Phase 2 eliminated that last mile.</p>
+      <p>I designed pre-built monthly, quarterly, and annual report templates that automatically pulled selected metrics into professional layouts. Users could generate a ready-to-send PDF or PNG in a single action — no copying, no pasting, no reformatting. The templates were built around what funding partners actually needed to see, using the stakeholder interview findings from discovery.</p>
+
+      <div class="cs-img-placeholder">
+        <span class="cs-img-label">Image</span>
+        <span class="cs-img-title">Phase 2 — report templates and export flow</span>
+        <img class="ui-shot" src="assets/img/tan90-baseline.webp" alt="Current academic year report view with chart export">
+        <span class="cs-img-caption">Pre-designed report templates with automated data population — one action to generate a funder-ready PDF or PNG.</span>
+      </div>
+
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:1.25rem 0 .5rem">Outcomes after Phase 2</p>
+      <div class="cs-outcome-row">
+        <div class="cs-outcome-header">Metric</div><div class="cs-outcome-header">Before</div><div class="cs-outcome-header">After</div>
+        <div class="cs-outcome-cell metric">Report preparation time</div><div class="cs-outcome-cell">2 hours</div><div class="cs-outcome-cell after">10 minutes</div>
+        <div class="cs-outcome-cell metric">Formatting consistency</div><div class="cs-outcome-cell">Inconsistent</div><div class="cs-outcome-cell after">100% consistent</div>
+        <div class="cs-outcome-cell metric">Report adoption rate</div><div class="cs-outcome-cell">Low</div><div class="cs-outcome-cell after">↑ 70%</div>
+      </div>
+
+      <div class="cs-quote">"The templates look professional and are ready to send out immediately. It's saved so much back-and-forth."<span>— Operations Lead</span></div>
+
+      <div class="cs-what-worked">
+        <div class="cs-ww-card">
+          <strong>What worked</strong>
+          <ul>
+            <li>Templates eliminated formatting inconsistencies entirely</li>
+            <li>Immediate time savings for the full report cycle</li>
+          </ul>
+        </div>
+        <div class="cs-ww-card">
+          <strong>What needed iteration</strong>
+          <ul>
+            <li>Users requested branding customization (headers, logos)</li>
+            <li>Complex datasets caused slower rendering times</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-phase">
+    <div class="cs-phase-header">
+      <div class="cs-phase-header-left">
+        <p class="cs-phase-num">Phase 3</p>
+        <p class="cs-phase-title">Role-based access for broader stakeholder groups</p>
+        <p class="cs-phase-desc">User-specific dashboards · Real-time access · Phased rollout</p>
+      </div>
+    </div>
+    <div class="cs-phase-body">
+      <p>With the operations workflow stabilized, Phase 3 expanded the platform outward — building role-specific dashboard views for educators, program managers, funding partners, and eventually parents and students.</p>
+      <p>Each user group saw only what was relevant to them. Educators got simplified student progress views. Program managers got real-time metrics with drill-down capability. Funding partners got impact summaries built for external presentation. The rollout was phased by user group to manage adoption carefully and address issues before the next group went live.</p>
+
+      <div class="cs-img-placeholder">
+        <span class="cs-img-label">Image</span>
+        <span class="cs-img-title">Phase 3 — role-specific dashboard views</span>
+        <img class="ui-shot" src="assets/img/tan90-views.webp" alt="Role-specific dashboard views and chart variety">
+        <span class="cs-img-caption">Tailored dashboard views for each stakeholder group — showing only what's relevant, designed around how each user makes decisions.</span>
+      </div>
+
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:1.25rem 0 .5rem">Outcomes after Phase 3</p>
+      <div class="cs-outcome-row">
+        <div class="cs-outcome-header">Metric</div><div class="cs-outcome-header">Before</div><div class="cs-outcome-header">After</div>
+        <div class="cs-outcome-cell metric">Platform adoption</div><div class="cs-outcome-cell">Low</div><div class="cs-outcome-cell after">95%</div>
+        <div class="cs-outcome-cell metric">Feature usage (custom views)</div><div class="cs-outcome-cell">Minimal</div><div class="cs-outcome-cell after">60% active use</div>
+        <div class="cs-outcome-cell metric">Satisfaction score</div><div class="cs-outcome-cell">3.0 / 5</div><div class="cs-outcome-cell after">4.8 / 5</div>
+      </div>
+
+      <div class="cs-quote">"Having real-time access tailored to our needs helps us track performance effortlessly."<span>— Program Manager</span></div>
+      <div class="cs-quote">"The automated reports save us hours, and the new layouts make presenting impact effortless."<span>— Operations Lead</span></div>
+
+      <div class="cs-what-worked">
+        <div class="cs-ww-card">
+          <strong>What worked</strong>
+          <ul>
+            <li>Educators and operations teams found tailored views intuitive immediately</li>
+            <li>Funders praised clarity of role-specific impact data</li>
+          </ul>
+        </div>
+        <div class="cs-ww-card">
+          <strong>What needed iteration</strong>
+          <ul>
+            <li>Parent/student views needed simpler visuals and better context</li>
+            <li>Program managers wanted deeper drill-down for trend analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Overall outcomes</h2><figure style="margin:1.5rem 0;"><img class="ui-shot" src="assets/img/tan90-after.webp" alt="After-state experience of each stakeholder group"><figcaption class="ui-cap">After: every stakeholder group moved from manual, delayed, generalized reporting to real-time, role-specific access.</figcaption></figure>
+  <div class="cs-outcome-summary">
+    <div class="cs-os"><p class="cs-os-num">2 hrs → 10 min</p><p class="cs-os-label">Report cycle time end-to-end</p></div>
+    <div class="cs-os"><p class="cs-os-num">↓ 60%</p><p class="cs-os-label">Error rate in report compilation</p></div>
+    <div class="cs-os"><p class="cs-os-num">95%</p><p class="cs-os-label">Platform adoption across stakeholders</p></div>
+    <div class="cs-os"><p class="cs-os-num">2.8 → 4.8</p><p class="cs-os-label">Satisfaction score improvement</p></div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <div class="cs-reflection">
+    <p class="cs-label" style="margin-bottom:8px">Reflection</p>
+    <p>The most important decision on this project wasn't a design decision — it was the phasing strategy. A single large redesign launch would have been harder to test, harder to trust, and harder for the engineering team to absorb. Breaking it into three focused phases meant each one had a clear purpose, a measurable outcome, and a defined user group whose feedback directly shaped the next phase.</p>
+    <p>The tension I kept navigating was between what different stakeholders wanted and what would actually move the needle on adoption. Operations teams needed automation immediately — everything else was secondary until that was solved. Funders needed professional-looking reports they could share without additional formatting. Educators needed simplicity above all else. Getting the sequencing right — operations first, then automation, then broader access — was as important as the design itself.</p>
+    <p>If I revisited this project, I'd invest more time earlier in defining what "impact" meant to different stakeholders before jumping into solutions. The whiteboarding sessions were valuable, but the definition of key metrics shifted several times during Phase 1 as different users pushed back on what we'd prioritized. Getting that alignment earlier would have reduced iteration time significantly.</p>
+  </div>
+
+  <div class="cs-takeaway">
+    <p>A dashboard that required 2–3 hours of manual work per report cycle now generates a funder-ready report in 10 minutes. The more important change was structural: shifting from a product that served data to one that served decisions — for every stakeholder group it touched.</p>
+  </div>
+</div>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">Tan90 &middot; Design Lead</span>
+        <h2 style="margin-top:14px;">More where this<br>came from.</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="work.html">All work &rarr;</a>
+        <a href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance &#8599;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="work.html">&larr; Back to work</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

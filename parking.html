@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Parking in Co-working Spaces &middot; Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="Parking case study">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance &#8599;</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<section class="section" style="padding-bottom:0;">
+  <div class="wrap" style="max-width:760px;">
+    <a class="textlink" href="work.html" style="border:0; font-size:13px; color:var(--ink-soft); padding:0;">&larr; All work</a>
+  </div>
+</section>
+<main class="reader section" style="padding-top:clamp(16px,2.5vw,28px);">
+
+<style>
+  .cs{max-width:660px;padding:2rem 0;font-family:var(--font-sans)}
+  .cs-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+  .cs-h1{font-size:24px;font-weight:500;color:var(--color-text-primary);margin:0 0 .4rem;line-height:1.3}
+  .cs-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .cs-meta{display:flex;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+  .cs-meta-item{display:flex;flex-direction:column;gap:3px}
+  .cs-meta-item span:first-child{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em}
+  .cs-meta-item span:last-child{font-size:13px;color:var(--color-text-primary)}
+  .cs-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+  .cs-body{font-size:15px;line-height:1.8;color:var(--color-text-primary);margin:0 0 1rem}
+  .cs-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+  .cs-h3{font-size:14px;font-weight:500;color:var(--color-text-primary);margin:1.5rem 0 .5rem}
+  .cs-pull{border-left:2px solid var(--color-border-secondary);padding:.5rem 0 .5rem 1.25rem;margin:1.5rem 0}
+  .cs-pull p{font-size:15px;color:var(--color-text-secondary);font-style:italic;margin:0;line-height:1.7}
+  .cs-insight{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0}
+  .cs-insight-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary);margin-bottom:6px}
+  .cs-insight p{font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.65}
+  .cs-img-placeholder{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin:1.5rem 0;display:flex;flex-direction:column;gap:6px}
+  .cs-img-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-tertiary)}
+  .cs-img-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .cs-img-caption{font-size:13px;color:var(--color-text-secondary);margin-top:4px;font-style:italic}
+  .cs-img-area{background:var(--color-background-tertiary);border-radius:var(--border-radius-md);height:180px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+  .cs-img-area span{font-size:13px;color:var(--color-text-tertiary)}
+  .cs-methods{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0}
+  .cs-method-tag{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:3px 10px}
+  .cs-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.25rem 0}
+  .cs-col-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem 1rem}
+  .cs-col-card strong{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);display:block;margin-bottom:6px}
+  .cs-col-card ul{margin:0;padding:0 0 0 1rem}
+  .cs-col-card ul li{font-size:13px;color:var(--color-text-secondary);line-height:1.65;margin-bottom:3px}
+  .cs-finding{margin:2rem 0}
+  .cs-finding-num{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--color-text-tertiary);margin-bottom:4px}
+  .cs-finding-title{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:0 0 .75rem;line-height:1.3}
+  .cs-validated-row{display:flex;gap:10px;padding:.65rem 0;border-bottom:.5px solid var(--color-border-tertiary);align-items:flex-start}
+  .cs-validated-row:last-child{border-bottom:none}
+  .cs-vr-icon{font-size:12px;min-width:18px;margin-top:2px}
+  .cs-vr-body strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:1px}
+  .cs-vr-body p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .cs-priority-row{display:flex;gap:12px;padding:.75rem 0;border-bottom:.5px solid var(--color-border-tertiary);align-items:flex-start}
+  .cs-priority-row:last-child{border-bottom:none}
+  .cs-priority-tag{font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+  .cs-priority-tag.must{background:#dcfce7;color:#166534}
+  .cs-priority-tag.should{background:#fef9c3;color:#92400e}
+  .cs-priority-tag.wont{background:var(--color-background-secondary);color:var(--color-text-tertiary)}
+  .cs-priority-body strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:2px}
+  .cs-priority-body p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .cs-rq{margin:0;padding:0;list-style:none}
+  .cs-rq li{font-size:14px;color:var(--color-text-secondary);line-height:1.7;padding:.5rem 0;border-bottom:.5px solid var(--color-border-tertiary);display:flex;gap:12px}
+  .cs-rq li:last-child{border-bottom:none}
+  .cs-rq-num{color:var(--color-text-tertiary);min-width:18px;font-size:13px}
+  .cs-reflection{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin:2rem 0}
+  .cs-reflection p{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 .75rem}
+  .cs-reflection p:last-child{margin-bottom:0}
+  .cs-takeaway{border-top:2px solid var(--color-border-primary);padding-top:1.5rem;margin-top:2rem}
+  .cs-takeaway p{font-size:16px;color:var(--color-text-primary);line-height:1.75;margin:0}
+  .cs-hmw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;margin:1.5rem 0;font-size:15px;color:var(--color-text-primary);font-style:italic;line-height:1.7}
+  .cs-journey-phase{margin:1.25rem 0;padding:1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}
+  .cs-journey-phase strong{font-size:13px;font-weight:500;color:var(--color-text-primary);display:block;margin-bottom:6px}
+  .cs-journey-phase p{font-size:13px;color:var(--color-text-secondary);margin:0 0 4px;line-height:1.55}
+  .cs-journey-phase .emotion{font-size:12px;color:var(--color-text-tertiary)}
+</style>
+
+<div class="cs">
+  <p class="cs-label">UX Design Challenge · Mobile App · 2024</p>
+  <h1 class="cs-h1">Parking in co-working spaces</h1>
+  <p class="cs-sub">A rapid design challenge — designing a mobile-first parking solution for a corporate employee navigating an unfamiliar co-working facility</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-item"><span>Type</span><span>Design challenge brief</span></div>
+    <div class="cs-meta-item"><span>Format</span><span>Research · Wireframes · Prototype</span></div>
+    <div class="cs-meta-item"><span>Timeline</span><span>Rapid — 2–3 day turnaround</span></div>
+    <div class="cs-meta-item"><span>Platform</span><span>Mobile app</span></div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">The brief</h2>
+  <p class="cs-body">Ram is a new corporate employee at a co-working office. Every morning, he spends around 15 minutes navigating two floors of parking looking for visitor spots — with no real-time availability information, unclear demarcations between visitor and reserved areas, and no colleagues to ask for help. He was eventually penalised for parking in a reserved spot he had no way of identifying as such.</p>
+  <p class="cs-body">The brief asked for a mobile-first solution that would solve his immediate daily frustration — while also accounting for the fact that he'll eventually be assigned a permanent parking spot, and the solution needed to support that transition.</p>
+
+  <div class="cs-pull"><p>"Design a solution that reduces uncertainty, saves time, and provides a seamless transition to permanent parking — using latest and feasible technologies available today."</p></div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Starting with research, not screens</h2>
+  <p class="cs-body">Rather than jumping straight to wireframes, I started by separating what the brief told me from what I'd need to verify. The brief established Ram's pain points clearly. What it didn't tell me was whether those pain points were unique to Ram — or representative of a larger pattern in how people experience corporate parking.</p>
+  <p class="cs-body">I ran two streams of research in parallel: secondary research into existing parking technology solutions (Park+, Get My Parking, ValetEZ, ParkingRhino) to understand what the market had already tried, and primary research through interviews with people who use corporate and co-working parking regularly.</p>
+
+  <div class="cs-methods">
+    <span class="cs-method-tag">Secondary research — 5 platforms analyzed</span>
+    <span class="cs-method-tag">Primary interviews</span>
+    <span class="cs-method-tag">Current state journey mapping</span>
+    <span class="cs-method-tag">Hypothesis validation</span>
+    <span class="cs-method-tag">MoSCoW prioritization</span>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">What the brief assumed vs what research showed</h2>
+  <p class="cs-body">I mapped every assumption from the brief against what primary and secondary research actually confirmed. Not everything held up.</p>
+
+  <div style="margin:1.5rem 0">
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">✅</span>
+      <div class="cs-vr-body"><strong>Lack of clear demarcation</strong><p>Confirmed — unclear visitor vs reserved markings was the most commonly cited source of confusion across both research streams</p></div>
+    </div>
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">✅</span>
+      <div class="cs-vr-body"><strong>Inefficient navigation</strong><p>Confirmed — multiple turns, unclear signage, and multi-floor layouts without guidance created consistent frustration</p></div>
+    </div>
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">✅</span>
+      <div class="cs-vr-body"><strong>Lack of social connections as a new employee</strong><p>Confirmed by primary research — new employees lacked informal channels to clarify rules, and this was a distinct compounding factor</p></div>
+    </div>
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">⚠️</span>
+      <div class="cs-vr-body"><strong>Unintentional penalties</strong><p>Partially confirmed — reserved spot misuse was noted, but penalties weren't explicitly raised by participants; more of an institutional friction than a daily user one</p></div>
+    </div>
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">❌</span>
+      <div class="cs-vr-body"><strong>Gamification for the visitor → permanent transition</strong><p>Not validated — neither primary nor secondary research surfaced this as a meaningful user need; dropped from scope</p></div>
+    </div>
+    <div class="cs-validated-row">
+      <span class="cs-vr-icon">✅</span>
+      <div class="cs-vr-body"><strong>Reserved spots remaining vacant</strong><p>Newly surfaced — primary research revealed that high-seniority reserved spots often sit empty when employees work from home, while others struggle to find spots at all</p></div>
+    </div>
+  </div>
+
+  <div class="cs-insight">
+    <p class="cs-insight-label">Research reframe</p>
+    <p>The brief framed this as a navigation and demarcation problem. Research suggested the deeper issue was uncertainty — about availability, about rules, about what would happen if Ram got it wrong. The design needed to address confidence, not just wayfinding.</p>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Competitive landscape</h2>
+  <p class="cs-body">Existing solutions like Park+ and Get My Parking solved the real-time availability problem well — but were built around public parking lots, not the nuanced hierarchy of co-working facilities where reserved, visitor, and dynamically allocated spots coexist in the same physical space.</p>
+  <p class="cs-body">ValetEZ and ParkingRhino handled the B2B management layer but offered little to the individual employee trying to navigate the space. None of the platforms addressed the social friction of being new — or the transition from temporary visitor status to permanent allocation.</p>
+
+  <div class="cs-insight">
+    <p class="cs-insight-label">Gap identified</p>
+    <p>The underserved space: a parking solution designed from the employee's perspective first — not the operator's — that accounts for both the daily uncertainty of visitor parking and the contextual complexity of co-working facility hierarchies.</p>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Problem framing</h2>
+  <p class="cs-body">Rather than solving "how do we help Ram find a spot," the research reframed the core question:</p>
+
+  <div class="cs-hmw">How might we reduce uncertainty — by increasing transparency and keeping the user informed at every step of the parking experience?</div>
+
+  <p class="cs-body">This framing covered the immediate daily friction (finding and validating a spot) and the longer-term transition (notification of permanent allocation) without requiring a feature-heavy solution to both simultaneously.</p>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Current state — Ram's journey before the solution</h2>
+
+  <div class="cs-journey-phase">
+    <strong>Arrival</strong>
+    <p>Enters the parking lot with no information about what's available. Starts on floor 1 and works upward.</p>
+    <p class="emotion">😕 Uncertain — "Will I find something today?"</p>
+  </div>
+  <div class="cs-journey-phase">
+    <strong>Searching</strong>
+    <p>Navigates two floors, no signage, no real-time data. Spends ~15 minutes looking. Sometimes asks security — who may or may not know.</p>
+    <p class="emotion">😤 Frustrated — "Why aren't these clearly marked?"</p>
+  </div>
+  <div class="cs-journey-phase">
+    <strong>Parking decision</strong>
+    <p>Spots an area that looks available. Parks. Hopes for the best. No validation mechanism exists.</p>
+    <p class="emotion">😟 Nervous — "Am I going to get a penalty again?"</p>
+  </div>
+  <div class="cs-journey-phase">
+    <strong>Penalty</strong>
+    <p>Receives a fine for parking in a reserved area he couldn't identify. No appeal mechanism. No way to know in advance.</p>
+    <p class="emotion">😡 Angry + embarrassed — "How was I supposed to know?"</p>
+  </div>
+  <div class="cs-journey-phase">
+    <strong>End of day</strong>
+    <p>Dreads tomorrow. No update on when his permanent spot will be assigned. No channel to report the issue.</p>
+    <p class="emotion">😔 Resigned — "I'll have to deal with this until something changes."</p>
+  </div>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Visual</span>
+    <span class="cs-img-title">Current state journey map with pain points annotated</span>
+    <img class="ui-shot" src="assets/img/parking/journey-map.png" alt="Current-state journey map across five phases — phase, user actions, touch points, thoughts, emotions, pain points and opportunities" loading="lazy" style="margin:10px 0;">
+    <span class="cs-img-caption">Five stages from arrival to end-of-day, showing where uncertainty compounds — and where the largest opportunities for intervention sit.</span>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Feature prioritization</h2>
+  <p class="cs-body">With a large ideation surface — real-time maps, IoT validation, AR overlays, drone guidance, gamification, community forums — I applied MoSCoW to focus the MVP on what would meaningfully reduce daily uncertainty without requiring infrastructure that didn't yet exist.</p>
+
+  <div style="margin:1.5rem 0">
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag must">Must</span>
+      <div class="cs-priority-body"><strong>Real-time parking map with spot availability</strong><p>Color-coded display of visitor, reserved, and vacant spots — the single biggest reducer of daily uncertainty</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag must">Must</span>
+      <div class="cs-priority-body"><strong>In-app spot validation</strong><p>Confirm before parking whether a spot is valid for visitors — removes the guesswork that led to penalties</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag must">Must</span>
+      <div class="cs-priority-body"><strong>Turn-by-turn navigation within the facility</strong><p>Voice-guided directions to a selected spot — hands-free, reduces circling</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag must">Must</span>
+      <div class="cs-priority-body"><strong>Push notifications for permanent spot assignment</strong><p>The brief explicitly required this — Ram needs to know in advance when his status changes</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag must">Must</span>
+      <div class="cs-priority-body"><strong>Penalty dashboard and dispute mechanism</strong><p>Transparency on dues; ability to contest penalties — addresses the fairness gap directly</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag should">Should</span>
+      <div class="cs-priority-body"><strong>Dynamic reallocation of vacant reserved spots</strong><p>Research-surfaced — senior employees not coming in shouldn't mean everyone else has fewer spots</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag should">Should</span>
+      <div class="cs-priority-body"><strong>FAQs and onboarding walkthrough</strong><p>Addresses the new employee knowledge gap — no colleagues to ask shouldn't mean no answers</p></div>
+    </div>
+    <div class="cs-priority-row">
+      <span class="cs-priority-tag wont">Won't (MVP)</span>
+      <div class="cs-priority-body"><strong>Gamification, AR overlays, drone guidance, spot auctions</strong><p>Not validated by research, or technically infeasible at this stage — deferred</p></div>
+    </div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Key flows designed</h2>
+
+  <div class="cs-two-col">
+    <div class="cs-col-card">
+      <strong>Spot discovery and booking</strong>
+      <ul>
+        <li>Open app → real-time map loads</li>
+        <li>Filter by spot type, EV, covered</li>
+        <li>Select and validate spot</li>
+        <li>Book — spot marked reserved</li>
+        <li>Navigate to spot</li>
+      </ul>
+    </div>
+    <div class="cs-col-card">
+      <strong>Reserved spot reallocation</strong>
+      <ul>
+        <li>Reserved holder gets morning notification</li>
+        <li>Confirms attendance: Yes / No</li>
+        <li>No response → spot auto-released</li>
+        <li>Visitor pool updated in real time</li>
+      </ul>
+    </div>
+    <div class="cs-col-card">
+      <strong>Penalty and payment</strong>
+      <ul>
+        <li>Dashboard shows dues and history</li>
+        <li>Dispute with photo evidence</li>
+        <li>Integrated payment (UPI, card)</li>
+        <li>Confirmation and updated status</li>
+      </ul>
+    </div>
+    <div class="cs-col-card">
+      <strong>Permanent spot transition</strong>
+      <ul>
+        <li>Notification when spot is assigned</li>
+        <li>In-app confirmation and details</li>
+        <li>Navigation updated to new spot</li>
+        <li>Onboarding to new status</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="cs-divider">
+
+  <h2 class="cs-h2">Sketches and wireframes</h2>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Image</span>
+    <span class="cs-img-title">Low-fidelity sketches — initial concepts</span>
+    <img class="ui-shot" src="assets/img/parking/sketch-1.webp" alt="Hand-drawn sketches — home, book spot & parking mode" loading="lazy" style="margin:10px 0;"><img class="ui-shot" src="assets/img/parking/sketch-2.webp" alt="Hand-drawn sketches — navigate, report issue & reassignment" loading="lazy" style="margin:10px 0;"><img class="ui-shot" src="assets/img/parking/sketch-3.webp" alt="Hand-drawn sketches — visitor, report issue & community" loading="lazy" style="margin:10px 0;">
+    <span class="cs-img-caption">Hand-drawn sketches exploring navigation structure, map layout, and the booking flow before committing to digital wireframes.</span>
+  </div>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Image</span>
+    <span class="cs-img-title">Low-fidelity wireframes — onboarding flow</span>
+    <img class="ui-shot" src="assets/img/parking/miro.webp" alt="Low-fidelity wireframes mapped on Miro — splash, onboarding, sign up & setup" loading="lazy" style="margin:10px 0;">
+    <span class="cs-img-caption">Wireframes covering splash screen, onboarding, login, setup, and first booking — mapped on Miro before moving to high-fidelity.</span>
+  </div>
+
+  <div class="cs-img-placeholder">
+    <span class="cs-img-label">Image</span>
+    <span class="cs-img-title">High-fidelity screens — onboarding and key flows</span>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0;"><img class="ui-shot" src="assets/img/parking/hifi-1.jpg" alt="Splash screen" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-2.jpg" alt="Onboarding — find parking fast" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-3.jpg" alt="Onboarding — your parking your way" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-4.jpg" alt="Login / sign up" loading="lazy"></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0;"><img class="ui-shot" src="assets/img/parking/hifi-5.jpg" alt="Sign up" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-6.jpg" alt="Setting up for work — getting started" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-7.jpg" alt="Setting up for work — permanent spot" loading="lazy"><img class="ui-shot" src="assets/img/parking/hifi-8.jpg" alt="You are all set" loading="lazy"></div>
+    <span class="cs-img-caption">High-fidelity screens built in Figma for the onboarding flow, with an animated splash screen and Lottie animations for key interactions.</span>
+  </div>
+
+  <hr class="cs-divider">
+
+  <div class="cs-reflection">
+    <p class="cs-label" style="margin-bottom:8px">Reflection</p>
+    <p>The most useful thing I did early in this challenge was map my hypotheses explicitly before starting research — separating what the brief assumed from what I'd need to verify. That discipline surfaced a few things the brief didn't raise: the dynamic allocation problem (vacant reserved spots while employees search for visitor spots) and the new employee knowledge gap that made the situation worse than it needed to be.</p>
+    <p>It also helped me confidently drop gamification from scope. It sounded compelling in ideation, but neither primary research nor competitive analysis gave it any support. Knowing why you're not building something is as important as knowing what you are.</p>
+    <p>If I had more time, I'd have run usability testing on the real-time map interaction — specifically how users respond to color-coded spot availability under time pressure while driving. That's the highest-stakes interaction in the flow and the one most worth testing before building.</p>
+  </div>
+
+  <div class="cs-takeaway">
+    <p>A parking problem that looked like a navigation problem turned out to be an uncertainty problem. Getting that distinction right — through research rather than assumption — changed what the solution needed to do.</p>
+  </div>
+</div>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">Park It &middot; Design challenge</span>
+        <h2 style="margin-top:14px;">More where this<br>came from.</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="work.html">All work &rarr;</a>
+        <a href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance &#8599;</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Mehak Dhariwal &mdash; Design Researcher</span>
+      <a href="work.html">&larr; Back to work</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

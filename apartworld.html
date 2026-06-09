@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('aw_unlocked')==='1')document.documentElement.classList.add('aw-ok');}catch(e){}</script>
+<title>ApartWorld — Hero Project · Mehak Dhariwal</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="ApartWorld overview">
+
+<!-- ============ NAV ============ -->
+<div class="gate" role="dialog" aria-label="Password protected">
+  <div class="gate-card">
+    <div class="gate-mark"><img src="assets/img/avatar.png" alt=""></div>
+    <span class="lock">&#128274; Protected case study</span>
+    <h1 style="margin-top:14px;">ApartWorld<span style="color:var(--orange);">.</span></h1>
+    <p>This is current, confidential client work. Enter the password to view the full project &amp; its four studies.</p>
+    <form>
+      <input type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <button class="btn btn-primary" type="submit">Unlock <span class="arr">&rarr;</span></button>
+    </form>
+    <div class="err-msg"></div>
+    <a class="back" href="work.html">&larr; Back to all work</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/img/avatar.png" alt="Mehak avatar"></span>
+      <span class="brand-name">Mehak Dhariwal<small>Design Researcher</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="game.html">Game</a>
+      <a href="studio.html">Studio</a>
+      <a href="lens.html">Lens</a>
+    </nav>
+    <a class="nav-cta" href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="section" style="padding-bottom:clamp(24px,4vw,40px);">
+  <div class="wrap">
+    <a class="textlink reveal" href="work.html" style="border:0; font-size:13px; color:var(--ink-soft); padding:0;">← All work</a>
+    <div class="row reveal d1" style="gap:10px; margin-top:22px;">
+      <span class="tag o">★ Hero Project</span><span class="tag">B2B Hospitality</span><span class="tag b">4 research studies</span>
+    </div>
+    <h1 class="reveal d1" style="font-size:clamp(44px,9vw,108px); margin-top:18px; line-height:.95;">ApartWorld<span class="pop" style="color:var(--orange);">.</span></h1>
+    <p class="lede reveal d2 narrow" style="margin-top:20px;">
+      A B2B serviced-apartment booking platform connecting travel agents, agency admins, and operations teams.
+      I joined as the embedded researcher and ran four studies — from understanding the ecosystem to usability-testing
+      the flows that shaped the MVP.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0; padding-bottom:clamp(28px,4vw,48px);">
+  <div class="wrap">
+    <div class="reveal" style="border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-soft);"><img src="assets/img/aw/overview.png" alt="ApartWorld — B2B apartment booking platform, ecosystem overview" style="display:block; width:100%; height:auto;"></div>
+    <div class="kv-row reveal" style="margin-top:28px;">
+      <div class="kv"><span class="k">Role</span><span class="v">UX Researcher (embedded)</span></div>
+      <div class="kv"><span class="k">Company</span><span class="v">NexTurn</span></div>
+      <div class="kv"><span class="k">Timeline</span><span class="v">2025 — present</span></div>
+      <div class="kv"><span class="k">Users</span><span class="v">Travel agents · Agency admins · Ops</span></div>
+      <div class="kv"><span class="k">Focus</span><span class="v">Research · Strategy · Service design</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBNAV ============ -->
+<div class="subnav" id="subnav">
+  <div class="subnav-inner">
+    <span class="sub-label">ApartWorld</span>
+    <a href="#overview" class="on">Overview</a>
+    <a href="#studies">The 4 studies</a>
+    <a href="#impact">Impact</a>
+  </div>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="section" id="overview" style="scroll-margin-top:120px;">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Context</span>
+    <div class="cs-grid reveal d1" style="margin-top:24px; align-items:start;">
+      <div class="cs-text">
+        <h2 style="font-size:clamp(26px,3.6vw,40px);">Not a booking screen — an operational system.</h2>
+        <p class="mt-s">The team had feature requirements and the instinct to start designing screens. I pushed back. Different stakeholders described the same process in completely different ways, and we were entering a category with established players and fixed expectations.</p>
+        <p>So I started with two questions instead: <strong>how does work actually move between the people who'd use this</strong>, and <strong>what does the category already leave underserved?</strong></p>
+      </div>
+      <figure style="margin:0;">
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-soft); padding:clamp(14px,2vw,20px);">
+          <svg viewBox="0 0 440 348" style="display:block; width:100%; height:auto; font-family:var(--mono);" role="img" aria-label="Summarised ApartWorld ecosystem map across platform, agency and external layers, with friction at the handoffs">
+            <defs>
+              <marker id="ah" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="oklch(0.62 0.015 60)"/></marker>
+              <marker id="ahf" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--orange)"/></marker>
+            </defs>
+            <!-- band separators -->
+            <line x1="0" y1="118" x2="440" y2="118" stroke="var(--line-soft)" stroke-width="1" stroke-dasharray="2 7"/>
+            <line x1="0" y1="232" x2="440" y2="232" stroke="var(--line-soft)" stroke-width="1" stroke-dasharray="2 7"/>
+            <!-- band labels -->
+            <text x="6" y="20" fill="var(--ink-faint)" font-size="9.5" letter-spacing="1.5">PLATFORM</text>
+            <text x="6" y="134" fill="var(--ink-faint)" font-size="9.5" letter-spacing="1.5">AGENCY</text>
+            <text x="6" y="248" fill="var(--ink-faint)" font-size="9.5" letter-spacing="1.5">EXTERNAL</text>
+
+            <!-- connectors (drawn first, under nodes) -->
+            <!-- flow -->
+            <path d="M104 96 L168 154" stroke="var(--ink-faint)" stroke-width="1.4" fill="none" marker-end="url(#ah)"/>
+            <path d="M262 178 L300 178" stroke="var(--ink-faint)" stroke-width="1.4" fill="none" marker-end="url(#ah)"/>
+            <path d="M188 200 L116 268" stroke="var(--ink-faint)" stroke-width="1.4" fill="none" marker-end="url(#ah)"/>
+            <!-- friction (orange dashed) -->
+            <path d="M150 96 Q120 130 96 152" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 4" fill="none" marker-end="url(#ahf)"/>
+            <path d="M312 96 L240 154" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 4" fill="none" marker-end="url(#ahf)"/>
+            <path d="M220 200 L220 266" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 4" fill="none" marker-end="url(#ahf)"/>
+            <path d="M252 200 Q330 235 348 266" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 4" fill="none" marker-end="url(#ahf)"/>
+
+            <!-- friction sparks -->
+            <text x="92" y="128" fill="var(--orange)" font-size="11">⚡</text>
+            <text x="232" y="128" fill="var(--orange)" font-size="11">⚡</text>
+            <text x="210" y="244" fill="var(--orange)" font-size="11">⚡</text>
+            <text x="330" y="244" fill="var(--orange)" font-size="11">⚡</text>
+
+            <!-- PLATFORM nodes -->
+            <g>
+              <rect x="108" y="34" width="84" height="34" rx="8" fill="var(--paper-2)" stroke="var(--ink)" stroke-width="1.4"/>
+              <text x="150" y="55" text-anchor="middle" fill="var(--ink)" font-size="10.5" font-weight="700">Super Admin</text>
+            </g>
+            <g>
+              <rect x="248" y="34" width="150" height="34" rx="8" fill="var(--paper-2)" stroke="var(--line)" stroke-width="1.2"/>
+              <text x="323" y="50" text-anchor="middle" fill="var(--ink)" font-size="10" font-weight="700">Sub-admins</text>
+              <text x="323" y="62" text-anchor="middle" fill="var(--ink-faint)" font-size="8">Sales · Ops · Accounts · Finance</text>
+            </g>
+
+            <!-- AGENCY nodes -->
+            <g>
+              <rect x="40" y="161" width="76" height="34" rx="8" fill="var(--paper-2)" stroke="var(--line)" stroke-width="1.2"/>
+              <text x="78" y="182" text-anchor="middle" fill="var(--ink)" font-size="10.5" font-weight="700">Owner</text>
+            </g>
+            <g>
+              <rect x="180" y="161" width="82" height="34" rx="8" fill="var(--orange-tint)" stroke="var(--orange)" stroke-width="1.6"/>
+              <text x="221" y="182" text-anchor="middle" fill="var(--orange-deep)" font-size="11" font-weight="700">Agent</text>
+            </g>
+            <g>
+              <rect x="300" y="161" width="92" height="34" rx="8" fill="var(--paper-2)" stroke="var(--line)" stroke-width="1.2"/>
+              <text x="346" y="182" text-anchor="middle" fill="var(--ink)" font-size="10.5" font-weight="700">Sub-agent</text>
+            </g>
+
+            <!-- EXTERNAL nodes -->
+            <g>
+              <rect x="40" y="273" width="92" height="34" rx="8" fill="var(--paper-2)" stroke="var(--line)" stroke-width="1.2"/>
+              <text x="86" y="294" text-anchor="middle" fill="var(--ink)" font-size="10.5" font-weight="700">Customer</text>
+            </g>
+            <g>
+              <rect x="174" y="273" width="92" height="34" rx="8" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="1.3"/>
+              <text x="220" y="289" text-anchor="middle" fill="oklch(0.45 0.12 248)" font-size="9.5" font-weight="700">Supplier</text>
+              <text x="220" y="300" text-anchor="middle" fill="oklch(0.45 0.12 248)" font-size="9.5" font-weight="700">APIs</text>
+            </g>
+            <g>
+              <rect x="308" y="273" width="92" height="34" rx="8" fill="var(--paper-2)" stroke="var(--line)" stroke-width="1.2"/>
+              <text x="354" y="294" text-anchor="middle" fill="var(--ink)" font-size="10.5" font-weight="700">Payment</text>
+            </g>
+
+            <!-- legend -->
+            <line x1="20" y1="334" x2="44" y2="334" stroke="var(--ink-faint)" stroke-width="1.4" marker-end="url(#ah)"/>
+            <text x="50" y="337" fill="var(--ink-faint)" font-size="8.5">flow</text>
+            <line x1="98" y1="334" x2="122" y2="334" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 4"/>
+            <text x="128" y="337" fill="var(--orange-deep)" font-size="8.5">⚡ friction at handoffs</text>
+          </svg>
+        </div>
+        <figcaption class="mono dim" style="font-size:11px; margin-top:9px; text-align:center;">10+ interdependent actors — friction concentrates where work passes between them</figcaption>
+      </figure>
+    </div>
+
+    <div class="callout reveal">
+      <span class="ql">The reframe</span>
+      <p>“Research changed the question from ‘what should the interface look like?’ to ‘how does work actually happen — and where do we focus first?’”</p>
+    </div>
+
+    <h3 class="reveal" style="font-size:clamp(20px,2.6vw,26px); margin-top:clamp(28px,4vw,48px);">Who ApartWorld serves</h3>
+    <div class="grid cols-3 reveal d1" style="margin-top:18px;">
+      <div class="card" style="box-shadow:none; background:var(--paper-2);"><div style="padding:22px;"><div class="mono" style="font-size:13px; color:var(--orange); font-weight:700;">Agents</div><h4 style="font-size:17px; margin:8px 0 6px;">Optimising for speed</h4><p style="font-size:14px;">Booking fast for a waiting client — location &amp; price first, then certainty.</p></div></div>
+      <div class="card" style="box-shadow:none; background:var(--paper-2);"><div style="padding:22px;"><div class="mono" style="font-size:13px; color:var(--orange); font-weight:700;">Admins</div><h4 style="font-size:17px; margin:8px 0 6px;">Optimising for control</h4><p style="font-size:14px;">Approvals, KYC, credit limits, performance — across three admin roles.</p></div></div>
+      <div class="card" style="box-shadow:none; background:var(--paper-2);"><div style="padding:22px;"><div class="mono" style="font-size:13px; color:var(--orange); font-weight:700;">Ops</div><h4 style="font-size:17px; margin:8px 0 6px;">Keeping it running</h4><p style="font-size:14px;">Tickets, modifications, failures — the work that happens after “confirm”.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="dash" style="max-width:var(--maxw); margin-inline:auto;">
+
+<!-- ============ THE 4 STUDIES ============ -->
+<section class="section" id="studies" style="scroll-margin-top:120px;">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">The Work</span>
+      <h2 style="font-size:clamp(28px,4.6vw,48px); margin-top:14px; max-width:20ch;">Four studies, each setting up the next.</h2>
+      <p class="dim mono" style="font-size:13px; margin-top:10px;">↳ click any study to read it in full</p>
+    </div>
+
+    <div class="grid cols-2 reveal d1" style="margin-top:clamp(28px,4vw,44px); gap:var(--gap);">
+      <a class="card" href="study1.html">
+        <img src="assets/img/aw/s1.png" alt="Study 1 — Understanding the ecosystem" style="display:block; width:100%; height:auto; border-bottom:1px solid var(--line);">
+        <div style="padding:clamp(18px,2.4vw,26px);">
+          <p>Mapping 10+ interdependent actors and benchmarking 25+ platforms — to learn that most friction lived at the handoffs, and the B2B agent layer was the category's clearest gap.</p>
+          <div class="chip-list mt-s"><span class="tag">Ecosystem mapping</span><span class="tag">Competitive analysis</span><span class="tag">Journey mapping</span></div>
+          <span class="textlink mt-s" style="font-size:13px;">Read study →</span>
+        </div>
+      </a>
+
+      <a class="card" href="study2.html">
+        <img src="assets/img/aw/s2.png" alt="Study 2 — Understanding users at scale" style="display:block; width:100%; height:auto; border-bottom:1px solid var(--line);">
+        <div style="padding:clamp(18px,2.4vw,26px);">
+          <p>A 124-agent survey plus in-depth admin sessions. Agents weren't exploring — they were closing fast; search friction turned out to be a <em>trust</em> problem, not a speed one.</p>
+          <div class="chip-list mt-s"><span class="tag">Survey · 124 agents</span><span class="tag">Interviews</span><span class="tag">Behavioral analysis</span></div>
+          <span class="textlink mt-s" style="font-size:13px;">Read study →</span>
+        </div>
+      </a>
+
+      <a class="card" href="study3.html">
+        <img src="assets/img/aw/s3.png" alt="Study 3 — From research to MVP" style="display:block; width:100%; height:auto; border-bottom:1px solid var(--line);">
+        <div style="padding:clamp(18px,2.4vw,26px);">
+          <p>Turning a pile of well-evidenced opportunities into a scope teams could commit to. The hardest, most valuable part was deciding what <em>not</em> to build.</p>
+          <div class="chip-list mt-s"><span class="tag">Opportunity mapping</span><span class="tag">Prioritisation</span><span class="tag">Workshops</span></div>
+          <span class="textlink mt-s" style="font-size:13px;">Read study →</span>
+        </div>
+      </a>
+
+      <a class="card" href="study4.html">
+        <img src="assets/img/aw/s4.png" alt="Study 4 — Evaluating decision workflows" style="display:block; width:100%; height:auto; border-bottom:1px solid var(--line);">
+        <div style="padding:clamp(18px,2.4vw,26px);">
+          <p>Usability-testing the compare &amp; quotation flow with predictive heatmaps and 4 agents — 100% task completion, and a clear read on where the design was quietly doing users' work for them.</p>
+          <div class="chip-list mt-s"><span class="tag">Predictive heatmaps</span><span class="tag">Moderated testing</span><span class="tag">Figma prototype</span></div>
+          <span class="textlink mt-s" style="font-size:13px;">Read study →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="row reveal" style="margin-top:clamp(28px,4vw,40px); gap:14px;">
+      <a class="btn btn-primary" href="study1.html">Start with Study 01 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://www.figma.com/proto/MC7xFwROlUHtUqAmTDRnye/Portfolio-Template?node-id=1207-172&scaling=scale-down-width&page-id=0%3A1&hide-ui=1" target="_blank" rel="noopener">View the prototype ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="dash" style="max-width:var(--maxw); margin-inline:auto;">
+
+<!-- ============ IMPACT ============ -->
+<section class="section" id="impact" style="scroll-margin-top:120px;">
+  <div class="wrap">
+    <span class="eyebrow reveal">What the research changed</span>
+    <div class="cs-grid reveal d1" style="margin-top:24px; align-items:start;">
+      <div class="cs-text">
+        <h2 style="font-size:clamp(24px,3.2vw,36px);">From “add more features” to a coherent first version.</h2>
+        <p class="mt-s">The work reframed the product strategy toward the underserved B2B agent layer, established what the operational infrastructure had to support from day one, and produced an MVP scope the whole team could line up behind.</p>
+        <ul class="ticks mt-s">
+          <li><strong>Strategy:</strong> build B2B-agent-first, then expand toward direct consumers.</li>
+          <li><strong>Trust framework:</strong> a phased rating strategy instead of borrowing hotel stars.</li>
+          <li><strong>MVP scope:</strong> compare, quotation, property highlights &amp; workflow continuity — deferring AI search &amp; loyalty.</li>
+        </ul>
+      </div>
+      <div class="stack-sm">
+        <div class="stat"><div class="num">124</div><div class="lbl">travel agents surveyed, plus in-depth admin sessions</div></div>
+        <div class="stat"><div class="num">25+</div><div class="lbl">competing platforms analysed for the landscape</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">task completion in usability testing of the compare &amp; quotation flow</div></div>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <span class="ql">Recognised for it</span>
+      <p>Named <span style="color:var(--orange-deep);">Best Rookie</span> for driving iterations within ambiguous problem spaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="eyebrow no-rule" style="color:var(--orange);">Reviewing my work?</span>
+        <h2 style="margin-top:14px;">Happy to walk you<br>through any study.</h2>
+      </div>
+      <div class="foot-socials">
+        <a href="study1.html">Read the studies →</a>
+        <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="work.html">All work →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Mehak Dhariwal — Design Researcher</span>
+      <a href="index.html">← Back home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
