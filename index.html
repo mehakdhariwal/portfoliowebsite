@@ -23,7 +23,7 @@
       <a href="studio.html">Studio</a>
       <a href="lens.html">Lens</a>
     </nav>
-    <a class="nav-cta" href="https://drive.google.com/file/d/1j79GGzyn5UiMB3vWMAtkf3X33l81lrPf/view" target="_blank" rel="noopener">Résumé ↗</a>
+    <a class="nav-cta" href="https://drive.google.com/file/d/1BNUfEnxZkz_BRxca55lJrzqyZunD7Hcp/view" target="_blank" rel="noopener">Résumé ↗</a>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -36,8 +36,8 @@
         <span class="eyebrow reveal">DESIGN RESEARCHER · CHENNAI | BENGALURU, IN</span>
         <h1 class="hero-name reveal d1" style="margin-top:18px;">Hi. I'm<br>Mehak<span class="pop">.</span></h1>
         <p class="lede reveal d2" style="margin-top:20px; max-width:30ch;">
-          A <strong>design researcher</strong> who likes to
-          <span data-typed="eat|travel|take pictures|read books|watch movies|make animation loops" class="mono" style="color:var(--orange); font-weight:700;">watch movie_</span>
+          A <strong>design researcher</strong> who likes to<br>
+          <span data-typed="make|make games|make animation loops|make prints|travel|take pictures|read books|watch movies|cook AND eat!!" class="mono" style="color:var(--orange); font-weight:700;">make_</span>
         </p>
         <div class="row reveal d3" style="margin-top:30px; gap:14px;">
           <a class="btn btn-primary" href="work.html">See my work <span class="arr">→</span></a>
@@ -45,23 +45,61 @@
         </div>
       </div>
 
-      <!-- scrapbook photo cluster -->
-      <div style="position:relative; min-height:340px;" class="hero-cluster reveal d2">
-        <div class="photo rot-l" data-float="0.03" style="position:absolute; top:0; left:6%; width:54%; z-index:3;">
-          <img class="shot square" src="assets/img/food.png" alt="Mehak smiling at a table full of food">
-          <div class="cap">that's me!</div>
-        </div>
-        <div class="photo rot-r" data-float="0.06" style="position:absolute; top:34%; right:0; width:46%; z-index:2;">
-          <img class="shot tall" src="assets/img/film-portrait.png" alt="Film self-portrait">
-          <div class="cap">on film</div>
-        </div>
-        <div class="photo rot-r1" data-float="0.045" style="position:absolute; bottom:0; left:0; width:40%; z-index:4;">
-          <img class="shot square" src="assets/img/loop.gif" alt="Animation loop">
-          <div class="cap">a little loop</div>
-        </div>
-        <svg class="scribble" width="120" height="60" viewBox="0 0 120 60" style="top:-26px; right:8%; z-index:5;" fill="none">
-          <path d="M4 40 C 30 8, 60 8, 78 36 S 110 52, 116 20" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 9"/>
-        </svg>
+      <!-- word-synced hero stage: a mini scrapbook cluster per word -->
+      <div class="hero-stage reveal d2" aria-hidden="true">
+        <!-- 0 make -->
+        <figure class="hero-shot g-make">
+          <img class="hc p1 pic" src="assets/img/sketchbook.png" alt="">
+          <img class="hc p2 pic" src="assets/img/charcoal.png" alt="">
+          <img class="hc p3 pic" src="assets/img/journal.png" alt="">
+        </figure>
+        <!-- 1 make games -->
+        <figure class="hero-shot">
+          <img class="hc p1 pic" src="assets/img/hero/game-present.jpg" alt="">
+          <img class="hc p2 pic" src="assets/img/game-board-1.jpg" alt="">
+          <img class="hc p3 pic" src="assets/img/hero/game-girls.jpg" alt="">
+        </figure>
+        <!-- 2 make animation loops: peacock left · watermelon · hand-eye (tall) right -->
+        <figure class="hero-shot g-loops">
+          <img class="hc p1 pic" src="assets/img/hero/loop-peacock.gif" alt="">
+          <img class="hc p2 pic" src="assets/img/hero/loop-watermelon.gif" alt="">
+          <img class="hc p3 pic" src="assets/img/hero/loop-hand.gif" alt="">
+        </figure>
+        <!-- 3 make prints: framed cyanotypes (held) -->
+        <figure class="hero-shot g-prints">
+          <img class="hc p1 pic" src="assets/img/hero/cam-flower.jpg" alt="">
+          <img class="hc p2 pic" src="assets/img/hero/cyan-alley.jpg" alt="">
+          <img class="hc p3 pic" src="assets/img/hero/cyan-boat.gif" alt="">
+        </figure>
+        <!-- 4 travel -->
+        <figure class="hero-shot">
+          <img class="hc p1 pic" src="assets/img/hero/travel-chembra.png" alt="">
+          <img class="hc p2 pic" src="assets/img/hero/travel-hill.png" alt="">
+          <img class="hc p3 pic" src="assets/img/hero/travel-bombay.gif" alt="">
+        </figure>
+        <!-- 5 take pictures: cameras -->
+        <figure class="hero-shot">
+          <img class="hc p1 pic" src="assets/img/hero/cam-saree.jpg" alt="">
+          <img class="hc p2 pic" src="assets/img/hero/book-manto.jpg" alt="">
+          <img class="hc p3 pic" src="assets/img/hero/cam-mosaic.jpg" alt="">
+        </figure>
+        <!-- 6 read books: bedsheet figure anchor + book cutouts framing it -->
+        <figure class="hero-shot g-books">
+          <img class="hc p1 cut" src="assets/img/hero/book-ghost.png" alt="">
+          <img class="hc p2 cut" src="assets/img/hero/book-gamification.png" alt="">
+          <img class="hc p3 cut" src="assets/img/hero/book-acts-cut.png" alt="">
+          <img class="hc p4 cut" src="assets/img/hero/book-manto-cut.png" alt="">
+          <img class="hc p5 pic" src="assets/img/hero/book-eleanor.png" alt="">
+        </figure>
+        <!-- 7 watch movies -->
+        <figure class="hero-shot">
+          <img class="hc center pic" src="assets/img/hero/cinema.png" alt="">
+        </figure>
+        <!-- 8 cook AND eat!! -->
+        <figure class="hero-shot g-eat">
+          <img class="hc p1 cut" src="assets/img/hero/eat-pasta.png" alt="">
+          <img class="hc p2 cut" src="assets/img/hero/sushi-cut.png" alt="">
+        </figure>
       </div>
     </div>
   </div>
@@ -192,7 +230,7 @@
           <p>Visual Communication at Shri Shankarlal Sundarbai Shasun Jain College, Chennai. My early years exploring different styles and media to tell stories.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-r1" data-float="0.03"><img class="shot wide" src="assets/img/shasun.jpg" alt="Shasun Jain College class of 2020"><div class="cap">class of '20</div></div>
+          <div class="collage-wrap m"><img class="collage rot-r1" data-float="0.03" src="assets/img/journey/shasun.png" alt="Shasun Jain College class of 2020"></div>
         </div>
       </div>
 
@@ -206,40 +244,38 @@
           <div class="chip-list mt-s"><span class="tag">Caricature · 1st place</span><span class="tag b">Animation</span></div>
         </div>
         <div class="m-media">
-          <div class="photo rot-l" data-float="0.04"><img class="shot" src="assets/img/charcoal.png" alt="Charcoal portrait study"><div class="cap">charcoal study</div></div>
-          <div class="photo rot-r" data-float="0.06"><img class="shot tall" src="assets/img/sketchbook.png" alt="Sketchbook portrait drawings"><div class="cap">sketchbook</div></div>
+          <div class="collage-wrap l"><img class="collage" data-float="0.03" src="assets/img/journey/craft-collage.png" alt="College-era collage — caricature first place, meeting Gaurav Juyal on a documentary shoot, preparing a hand-painted backdrop, and interacting with kids at Kaliyanur"></div>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="milestone reveal">
+      <div class="milestone wide reveal">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">2020</div>
           <h3 class="m-title pink">Covid happened.</h3>
-          <p>Kept creating from home — running photoshoots over G-Meet and shooting self-portraits in the living room.</p>
+          <p>Kept creating from home — running photoshoots over G-Meet, shooting self-portraits in the living room, filling sketchbooks, and taking on whacky illustration prompts from the internet.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-r" data-float="0.05"><img class="shot tall" src="assets/img/hero-portrait.png" alt="Self-portrait held to the sky"><div class="cap">self-portraits</div></div>
-          <div class="photo rot-l1" data-float="0.03"><img class="shot" src="assets/img/journal.png" alt="Illustrated journal page from 2020"><div class="cap">2020 journal</div></div>
+          <div class="collage-wrap hero"><img class="collage" data-float="0.02" src="assets/img/journey/covid.png" alt="A collage of charcoal portraits, self-portrait photography, G-Meet shoots and illustration prompts made during lockdown"></div>
         </div>
       </div>
 
       <!-- 4 -->
-      <div class="milestone flip reveal">
+      <div class="milestone reveal">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">2020 — 2021</div>
           <h3 class="m-title">Teacher &amp; Fundraising Coach</h3>
-          <p>Reignited my love for working with kids and education — teaching, mentoring, and coaching fundraising drives.</p>
+          <p>Reignited my love for working with kids and education — teaching, mentoring, and coaching fundraising drives over video calls and in classrooms.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-r1" data-float="0.04"><img class="shot" src="assets/img/teaching.png" alt="Laughing with schoolchildren"><div class="cap">with the kids</div></div>
+          <div class="collage-wrap l"><img class="collage rot-r1" data-float="0.035" src="assets/img/journey/uandi.png" alt="Fundraising session over video call — &quot;I wish I could help, so I will&quot;"></div>
         </div>
       </div>
 
       <!-- 5 -->
-      <div class="milestone reveal">
+      <div class="milestone flip reveal">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">2020 — 2021</div>
@@ -247,20 +283,21 @@
           <p>Art Director, then Associate Designer at a kids' slow-fashion label. Built a consistent style guide, ran studio &amp; on-location shoots, and researched sustainable seasonal designs.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-l" data-float="0.05"><img class="shot wide" src="assets/img/tinytroop.png" alt="Kids slow-fashion campaign shoot"><div class="cap">My Tiny Troop</div></div>
+          <div class="collage-wrap m"><img class="collage rot-l1" data-float="0.04" src="assets/img/journey/troop1.png" alt="Photographing a young model on a Tiny Troop shoot"></div>
+          <div class="collage-wrap m"><img class="collage rot-r1" data-float="0.06" src="assets/img/journey/troop2.png" alt="Tiny Troop kids fashion campaign with accompanying illustrations"></div>
         </div>
       </div>
 
       <!-- 6 -->
-      <div class="milestone flip reveal">
+      <div class="milestone reveal bleed-r">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">2021 — 2023</div>
           <h3 class="m-title">MDes. @ NIFT</h3>
-          <p>Masters in Design specializing in Experience Design — systems thinking, sustainability, design innovation, research methods. Deepened UX/UI while still chasing branding, animation &amp; trends.</p>
+          <p>Masters in Design specializing in Experience Design — systems thinking, sustainability, design innovation &amp; research methods. Deepened UX/UI while still chasing branding, animation &amp; trends.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-l1" data-float="0.06"><img class="shot tall" src="assets/img/mundgod.png" alt="Golden temple in Mundgod, Karnataka"><div class="cap">mundgod</div></div>
+          <div class="collage-wrap l"><img class="collage" data-float="0.02" src="assets/img/journey/nift.png" alt="NIFT collage — batch of '23, sketchbook studies, a fresh-fruits app concept, Mundgod field trip and product-vision work"></div>
         </div>
       </div>
 
@@ -273,7 +310,7 @@
           <p>Worked on the UI of an ed-tech product and a genealogy product. Shadowed research and client meetings, and was part of tech hand-offs.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-r1" data-float="0.04"><img class="shot wide" src="assets/img/edtech.png" alt="Ed-tech UI before and after"><div class="cap">ed-tech UI</div></div>
+          <div class="collage-wrap m"><img class="shot-plain" data-float="0.04" src="assets/img/edtech.png" alt="Ed-tech UI before and after"></div>
         </div>
       </div>
 
@@ -286,12 +323,12 @@
           <p>Mostly research — dashboards plus an integrating platform across all of Bosch's clinical-testing AI devices.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-l" data-float="0.05"><img class="shot wide" src="assets/img/behance/bosch.png" alt="Bosch Healthcare project"><div class="cap">Bosch healthcare</div></div>
+          <div class="collage-wrap m"><img class="shot-plain" data-float="0.05" src="assets/img/behance/bosch.png" alt="Bosch Healthcare project"></div>
         </div>
       </div>
 
       <!-- 9 -->
-      <div class="milestone reveal">
+      <div class="milestone reveal bleed-r">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">2023 — Nov 2024</div>
@@ -299,13 +336,12 @@
           <p>Led research in urban &amp; rural India, ran design-thinking workshops for 50+, redesigned a student-impact dashboard (−70% report time), and shipped innovation modules to <strong>300+ schools &amp; ITIs</strong> with Shikshalokam &amp; Tekdi.</p>
         </div>
         <div class="m-media">
-          <div class="photo rot-r" data-float="0.04"><img class="shot" src="assets/img/girls-filling.png" alt="Students working through a design-thinking worksheet"><div class="cap">in schools</div></div>
-          <div class="photo rot-l1" data-float="0.06"><img class="shot" src="assets/img/tan90-audit.png" alt="Design-thinking workshop with sticky notes"><div class="cap">workshop</div></div>
+          <div class="collage-wrap l"><img class="collage" data-float="0.02" src="assets/img/journey/tan90.png" alt="tan-90 collage — team photo, design-process board, school field research and a research repository wall"></div>
         </div>
       </div>
 
       <!-- 10 — board game (side venture) -->
-      <div class="milestone flip reveal">
+      <div class="milestone reveal">
         <div class="node"></div>
         <div class="m-body">
           <div class="m-year">Sept 2024 — Now</div>
@@ -313,23 +349,23 @@
           <p>Designing <strong>Just a Bowl</strong> from scratch — mechanics, systems &amp; play-testing — the seed of <strong>Straight Outta Dream</strong>, a tabletop studio it might grow into. Research and prototyping, but make it play.</p>
           <a class="textlink mt-s" href="game.html">Into the game <span>→</span></a>
         </div>
-        <div class="m-media">
-          <div class="photo rot-l" data-float="0.05"><img class="shot" src="assets/img/game-hero.jpg" alt="Playtesting Just a Bowl around a table"><div class="cap">playtest day</div></div>
-          <div class="photo rot-r1" data-float="0.03"><img class="shot wide" src="assets/img/game-board-1.jpg" alt="Just a Bowl game board"><div class="cap">the board</div></div>
+        <div class="m-media cluster">
+          <div class="collage-wrap m"><img class="collage rot-r1" data-float="0.05" src="assets/img/journey/game2.png" alt="Friends playtesting the Just a Bowl board game"></div>
+          <div class="collage-wrap s"><img class="collage rot-l1" data-float="0.03" src="assets/img/journey/game1.png" alt="Showing Just a Bowl at SAF Goa 2025"></div>
         </div>
       </div>
 
       <!-- 11 -->
-      <div class="milestone reveal">
+      <div class="milestone flip reveal">
         <div class="node" style="border-color:var(--green); box-shadow:0 0 0 6px var(--paper), 0 0 0 9px oklch(0.66 0.11 155 / .25);"></div>
         <div class="m-body">
           <div class="m-year" style="color:var(--green);">Feb 2025 — Now</div>
           <h3 class="m-title">UX Designer · NexTurn</h3>
-          <p>Researching B2B hospitality workflows and shaping MVP decisions across business, ops &amp; engineering. Still freelancing on the side — maternity and fashion shoots.</p>
+          <p>Researching B2B hospitality workflows and shaping MVP decisions across business, ops &amp; engineering — recognised as <strong>Best Rookie</strong>. Still freelancing on the side.</p>
           <a class="textlink mt-s" href="work.html">See what I'm building <span>→</span></a>
         </div>
         <div class="m-media">
-          <div class="photo rot-r1" data-float="0.04"><div class="ph tint-o square"><span>ApartWorld</span></div><div class="cap">current work</div></div>
+          <div class="collage-wrap s"><img class="collage rot-l1" data-float="0.04" src="assets/img/journey/nexturn.png" alt="NexTurn Best Rookie certificate of excellence"></div>
         </div>
       </div>
 
@@ -344,43 +380,61 @@
       <span class="eyebrow no-rule">Kind words</span>
       <h2 style="font-size:clamp(28px,4.4vw,44px); margin-top:12px;">People I've worked with</h2>
     </div>
-    <div class="grid cols-2">
-      <figure class="card reveal d1" style="padding:clamp(24px,3vw,36px); margin:0;">
-        <div class="mono" style="font-size:38px; line-height:1; color:var(--orange);">&ldquo;</div>
-        <blockquote style="margin:8px 0 0; font-size:16px; color:var(--ink); line-height:1.6;">
-          Mehak manages multiple projects simultaneously without compromising quality. With a strong understanding of product thinking, she asks insightful questions and consistently brings innovative ideas — a passionate, driven professional.
-        </blockquote>
-        <figcaption class="mono" style="margin-top:20px; font-size:13px;">
-          <strong>Aishwarya Rastogi</strong><br><span class="dim">Solutions Lead, Shikshalokam</span>
-        </figcaption>
-      </figure>
-      <figure class="card reveal d2" style="padding:clamp(24px,3vw,36px); margin:0;">
-        <div class="mono" style="font-size:38px; line-height:1; color:var(--blue);">&ldquo;</div>
-        <blockquote style="margin:8px 0 0; font-size:16px; color:var(--ink); line-height:1.6;">
-          An outstanding design lead. She demonstrates exceptional clarity in navigating complex situations and finds innovative solutions in ambiguous circumstances. Her collaborative approach elevates projects and fosters a positive team dynamic.
-        </blockquote>
-        <figcaption class="mono" style="margin-top:20px; font-size:13px;">
-          <strong>Tarunikaa M</strong><br><span class="dim">Strategy Consultant, Grapdes</span>
-        </figcaption>
-      </figure>
-      <figure class="card reveal d1" style="padding:clamp(24px,3vw,36px); margin:0;">
-        <div class="mono" style="font-size:38px; line-height:1; color:var(--green);">&ldquo;</div>
-        <blockquote style="margin:8px 0 0; font-size:15.5px; color:var(--ink); line-height:1.6;">
-          I've worked with Mehak for over a year, and in one sentence: <strong>she's someone very easy to work with</strong>. She's a UX professional who's a step ahead in understanding and designing for better interaction — great articulation, a strong grasp of the functional side, and quick with solutions. I clearly remember the lengths she went to building stories for features that needed real research to define the user journeys around property search &amp; booking. As a solution consultant &amp; product enthusiast, she's a real asset a team can rely on.
-        </blockquote>
-        <figcaption class="mono" style="margin-top:20px; font-size:13px;">
-          <strong>Deepakumar</strong><br><span class="dim">Lead Business Consultant, NexTurn</span>
-        </figcaption>
-      </figure>
-      <figure class="card reveal d2" style="padding:clamp(24px,3vw,36px); margin:0;">
-        <div class="mono" style="font-size:38px; line-height:1; color:var(--pink);">&ldquo;</div>
-        <blockquote style="margin:8px 0 0; font-size:15.5px; color:var(--ink); line-height:1.6;">
-          Mehak very quickly became an exceptional part of My Tiny Troop. She showed a strong passion for fashion &amp; photography and took on tasks with enthusiasm and professionalism. She contributed valuable ideas, worked well under pressure, and was a true asset to our team. I highly recommend her for any opportunities in the fashion industry and beyond!
-        </blockquote>
-        <figcaption class="mono" style="margin-top:20px; font-size:13px;">
-          <strong>Samiksha Jain</strong><br><span class="dim">Founder, My Tiny Troop</span>
-        </figcaption>
-      </figure>
+
+    <div class="tcar reveal" data-carousel>
+      <div class="tcar-track">
+        <figure class="card tcar-card" style="padding:clamp(24px,3vw,36px); margin:0;">
+          <div class="mono" style="font-size:38px; line-height:1; color:var(--orange);">&ldquo;</div>
+          <blockquote style="margin:8px 0 0; font-size:15.5px; color:var(--ink); line-height:1.6;">
+            I've worked with Mehak for over a year, and in one sentence: <strong>she's someone very easy to work with</strong>. She's a UX professional who's a step ahead in understanding and designing for better interaction &mdash; great articulation, a strong grasp of the functional side, and quick with solutions. I clearly remember the lengths she went to building stories for features that needed real research to define the user journeys around property search &amp; booking. As a solution consultant &amp; product enthusiast, she's a real asset a team can rely on.
+          </blockquote>
+          <figcaption class="mono" style="margin-top:20px; font-size:13px;">
+            <strong>Deepakumar</strong><br><span class="dim">Lead Business Consultant, NexTurn</span>
+          </figcaption>
+        </figure>
+        <figure class="card tcar-card" style="padding:clamp(24px,3vw,36px); margin:0;">
+          <div class="mono" style="font-size:38px; line-height:1; color:var(--green);">&ldquo;</div>
+          <blockquote style="margin:8px 0 0; font-size:16px; color:var(--ink); line-height:1.6;">
+            Mehak has been an excellent contributor to the project over the last year. She consistently demonstrated strong research skills, professionalism, and integrity, delivering quality work and contributing positively to the team.
+          </blockquote>
+          <figcaption class="mono" style="margin-top:20px; font-size:13px;">
+            <strong>Sajith Surendran</strong><br><span class="dim">UX Architect, NexTurn</span>
+          </figcaption>
+        </figure>
+        <figure class="card tcar-card" style="padding:clamp(24px,3vw,36px); margin:0;">
+          <div class="mono" style="font-size:38px; line-height:1; color:var(--green);">&ldquo;</div>
+          <blockquote style="margin:8px 0 0; font-size:16px; color:var(--ink); line-height:1.6;">
+            Mehak manages multiple projects simultaneously without compromising quality. With a strong understanding of product thinking, she asks insightful questions and consistently brings innovative ideas &mdash; a passionate, driven professional.
+          </blockquote>
+          <figcaption class="mono" style="margin-top:20px; font-size:13px;">
+            <strong>Aishwarya Rastogi</strong><br><span class="dim">Solutions Lead, Shikshalokam</span>
+          </figcaption>
+        </figure>
+        <figure class="card tcar-card" style="padding:clamp(24px,3vw,36px); margin:0;">
+          <div class="mono" style="font-size:38px; line-height:1; color:var(--green);">&ldquo;</div>
+          <blockquote style="margin:8px 0 0; font-size:16px; color:var(--ink); line-height:1.6;">
+            An outstanding design lead. She demonstrates exceptional clarity in navigating complex situations and finds innovative solutions in ambiguous circumstances. Her collaborative approach elevates projects and fosters a positive team dynamic.
+          </blockquote>
+          <figcaption class="mono" style="margin-top:20px; font-size:13px;">
+            <strong>Tarunikaa M</strong><br><span class="dim">Strategy Consultant, Grapdes</span>
+          </figcaption>
+        </figure>
+        <figure class="card tcar-card" style="padding:clamp(24px,3vw,36px); margin:0;">
+          <div class="mono" style="font-size:38px; line-height:1; color:var(--pink);">&ldquo;</div>
+          <blockquote style="margin:8px 0 0; font-size:15.5px; color:var(--ink); line-height:1.6;">
+            Mehak very quickly became an exceptional part of My Tiny Troop. She showed a strong passion for fashion &amp; photography and took on tasks with enthusiasm and professionalism. She contributed valuable ideas, worked well under pressure, and was a true asset to our team. I highly recommend her for any opportunities in the fashion industry and beyond!
+          </blockquote>
+          <figcaption class="mono" style="margin-top:20px; font-size:13px;">
+            <strong>Samiksha Jain</strong><br><span class="dim">Founder, My Tiny Troop</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="tcar-ctrl">
+        <button class="tcar-btn" type="button" data-dir="-1" aria-label="Previous testimonials">&larr;</button>
+        <div class="tcar-dots" role="tablist" aria-label="Testimonial pages"></div>
+        <button class="tcar-btn" type="button" data-dir="1" aria-label="More testimonials">&rarr;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -396,7 +450,7 @@
       <div class="foot-socials">
         <a href="https://www.linkedin.com/in/mehak-dhariwal/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="https://www.behance.net/mehakdhariwal" target="_blank" rel="noopener">Behance ↗</a>
-        <a href="https://drive.google.com/file/d/1j79GGzyn5UiMB3vWMAtkf3X33l81lrPf/view" target="_blank" rel="noopener">Résumé ↗</a>
+        <a href="https://drive.google.com/file/d/1BNUfEnxZkz_BRxca55lJrzqyZunD7Hcp/view" target="_blank" rel="noopener">Résumé ↗</a>
       </div>
     </div>
     <div class="foot-bottom">

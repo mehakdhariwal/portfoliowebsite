@@ -76,16 +76,43 @@
       if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
         el.textContent = items[0]; return;
       }
-      var i=0, ch=0, deleting=false;
+      var i=0, ch=0, phase='typing', floor=0, n=items.length;
       var caret = document.createElement('span');
       caret.className = 'caret'; caret.textContent = '_';
       el.textContent=''; el.appendChild(document.createTextNode('')); el.appendChild(caret);
+
+      // shared leading characters between two phrases — what we DON'T delete,
+      // so a common prefix like "make " stays static while suffixes swap.
+      function shared(a, b){
+        var m = Math.min(a.length, b.length), k = 0;
+        while(k < m && a.charAt(k) === b.charAt(k)) k++;
+        return k;
+      }
+
       function tick(){
         var word = items[i];
-        if(!deleting){ ch++; if(ch>=word.length){ deleting=true; setTimeout(tick, 1500); return; } }
-        else { ch--; if(ch<=0){ deleting=false; i=(i+1)%items.length; } }
-        el.firstChild.nodeValue = word.substring(0, ch);
-        setTimeout(tick, deleting ? 32 : 62);
+        if(phase === 'typing'){
+          ch++;
+          el.firstChild.nodeValue = word.substring(0, ch);
+          if(ch >= word.length){
+            floor = shared(word, items[(i+1) % n]);
+            el.dispatchEvent(new CustomEvent('typedword', { detail: i }));
+            phase = 'deleting';
+            setTimeout(tick, 1500);
+            return;
+          }
+          setTimeout(tick, 62);
+        } else {
+          if(ch > floor){
+            ch--;
+            el.firstChild.nodeValue = word.substring(0, ch);
+            setTimeout(tick, 32);
+          } else {
+            i = (i + 1) % n;          // advance; shared prefix stays on screen
+            phase = 'typing';
+            setTimeout(tick, 280);
+          }
+        }
       }
       setTimeout(tick, 600);
     });
@@ -192,8 +219,91 @@
     }
   }
 
+  /* ---- testimonial carousel ---- */
+  function initCarousel(){
+    document.querySelectorAll('[data-carousel]').forEach(function(car){
+      var track = car.querySelector('.tcar-track');
+      var dotsWrap = car.querySelector('.tcar-dots');
+      var btns = car.querySelectorAll('.tcar-btn');
+      if(!track || !track.children.length) return;
+      var cards = Array.prototype.slice.call(track.children);
+
+      function step(){
+        var c = cards[0];
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return c.getBoundingClientRect().width + gap;
+      }
+      function perView(){
+        return Math.max(1, Math.round(track.clientWidth / step()));
+      }
+      function current(){
+        return Math.round(track.scrollLeft / step());
+      }
+
+      // build dots (one per card)
+      var dots = [];
+      if(dotsWrap){
+        dotsWrap.innerHTML = '';
+        cards.forEach(function(_, i){
+          var d = document.createElement('button');
+          d.className = 'tcar-dot'; d.type = 'button';
+          d.setAttribute('aria-label', 'Go to testimonial ' + (i+1));
+          d.addEventListener('click', function(){ track.scrollTo({ left: i*step(), behavior:'smooth' }); });
+          dotsWrap.appendChild(d); dots.push(d);
+        });
+      }
+
+      function sync(){
+        var idx = current();
+        var pv = perView();
+        var maxIdx = Math.max(0, cards.length - pv);
+        dots.forEach(function(d, i){
+          // a dot is "on" if its card is the left-most visible (clamped at the end)
+          d.classList.toggle('on', i === Math.min(idx, maxIdx));
+          // hide dots that can never be a start position (beyond maxIdx) when multi-per-view
+          d.style.display = (i > maxIdx && pv > 1) ? 'none' : '';
+        });
+        btns.forEach(function(b){
+          var dir = parseInt(b.getAttribute('data-dir'), 10);
+          if(dir < 0) b.disabled = idx <= 0;
+          else b.disabled = idx >= maxIdx;
+        });
+      }
+
+      btns.forEach(function(b){
+        b.addEventListener('click', function(){
+          var dir = parseInt(b.getAttribute('data-dir'), 10);
+          track.scrollBy({ left: dir * step(), behavior:'smooth' });
+        });
+      });
+
+      var raf;
+      track.addEventListener('scroll', function(){
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(sync);
+      }, { passive:true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  }
+
+  /* ---- hero stage: crossfade image synced to typed word ---- */
+  function initHeroSync(){
+    var typed = document.querySelector('[data-typed]');
+    var stage = document.querySelector('.hero-stage');
+    if(!typed || !stage) return;
+    var shots = stage.querySelectorAll('.hero-shot');
+    if(!shots.length) return;
+    function show(i){
+      var idx = ((i % shots.length) + shots.length) % shots.length;
+      shots.forEach(function(s, k){ s.classList.toggle('on', k === idx); });
+    }
+    show(0);
+    typed.addEventListener('typedword', function(e){ show(e.detail); });
+  }
+
   function boot(){
-    initGate(); initNav(); initReveals(); initTyped(); initJourney(); initFloat(); initSubnav();
+    initGate(); initNav(); initReveals(); initTyped(); initJourney(); initFloat(); initSubnav(); initCarousel(); initHeroSync();
   }
   if(document.readyState !== 'loading') boot();
   else document.addEventListener('DOMContentLoaded', boot);
